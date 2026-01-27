@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CompanyName - Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Simple Homepage Styles */
+    .simple-homepage {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .content-section {
+      flex: 1;
+      padding: 4rem 0;
+    }
+    
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .image-section {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .homepage-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .text-section {
+      margin-bottom: 3rem;
+    }
+    
+    .text-section h1 {
+      font-size: 2.5rem;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+    
+    .text-section h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .text-section p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+    
+    .grid-layout.reverse {
+      direction: rtl;
+    }
+    
+    .grid-layout.reverse > * {
+      direction: ltr;
+    }
+    
+    @media (max-width: 768px) {
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+      
+      .grid-layout.reverse {
+        direction: ltr;
+      }
+      
+      .text-section h1 {
+        font-size: 2rem;
+      }
+      
+      .text-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="simple-homepage">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="homepage.html" style="color: white; text-decoration: none;">CompanyName</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="homepage.html">Home</a></li>
+          <li id="loginNavItem"><a href="login.html" class="btn">Login</a></li>
+          <li id="userNavItem" style="display: none;">
+            <span id="userName" style="color: white; margin-right: 1rem;"></span>
+            <a href="#" id="logoutBtn" class="btn">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="content-section">
+    <div class="content-container">
+      
+      <!-- Section 1: Image + Text -->
+      <div class="grid-layout">
+        <div class="image-section">
+          <img src="https://via.placeholder.com/600x400" alt="Placeholder" class="homepage-image" />
+        </div>
+        <div class="text-section">
+          <h1>Your Title Here</h1>
+          <p>Add your text content here. This is a simple layout where you can add images and text to create your homepage content.</p>
+          <p>You can write multiple paragraphs to describe your company, products, or services.</p>
+        </div>
+      </div>
+
+      <!-- Section 2: Text + Image (Reversed) -->
+      <div class="grid-layout reverse">
+        <div class="image-section">
+          <img src="https://via.placeholder.com/600x400" alt="Placeholder" class="homepage-image" />
+        </div>
+        <div class="text-section">
+          <h2>Another Section Title</h2>
+          <p>This section has the image on the right side. You can alternate between left and right image placement.</p>
+          <p>Simply add more content blocks like this to build your page.</p>
+        </div>
+      </div>
+
+      <!-- Section 3: Full Width Text -->
+      <div class="text-section">
+        <h2>Full Width Text Section</h2>
+        <p>This is a full-width text section without an image. You can use this for longer content or important announcements.</p>
+        <p>Add as many paragraphs as you need to tell your story.</p>
+      </div>
+
+      <!-- Section 4: Image + Text -->
+      <div class="grid-layout">
+        <div class="image-section">
+          <img src="https://via.placeholder.com/600x400" alt="Placeholder" class="homepage-image" />
+        </div>
+        <div class="text-section">
+          <h2>More Content</h2>
+          <p>Continue adding content sections as needed. Each section can have different combinations of images and text.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 CompanyName. All rights reserved.</p>
+  </footer>
+
+  <script src="auth.js"></script>
+</body>
+</html>
+
