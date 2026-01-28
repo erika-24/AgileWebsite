@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research - CompanyName</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Research Page Styles */
+    .research-page {
+      min-height: 100vh;
+      background: #f9fafb;
+    }
+    
+    /* Filter tabs for research categories */
+    .research-filters {
+      background: white;
+      padding: 2rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+    
+    .filter-tabs {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .filter-tab {
+      padding: 0.7rem 1.5rem;
+      background: #f3f4f6;
+      color: #666;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-tab:hover {
+      background: #e5e7eb;
+    }
+    
+    .filter-tab.active {
+      background: #4f46e5;
+      color: white;
+    }
+    
+    /* Research papers grid layout */
+    .research-content {
+      padding: 4rem 0;
+    }
+    
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    /* Individual research paper card */
+    .research-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .research-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Research paper image/thumbnail */
+    .research-image {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+    
+    /* Category badge on research card */
+    .research-category {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4f46e5;
+    }
+    
+    /* Research card content area */
+    .research-content-card {
+      padding: 1.5rem;
+    }
+    
+    .research-content-card h3 {
+      font-size: 1.3rem;
+      color: #111;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    
+    /* Research metadata (date, authors) */
+    .research-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      color: #999;
+    }
+    
+    .research-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    /* Research paper abstract/description */
+    .research-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    
+    /* Tags for research topics */
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .research-tag {
+      background: #f3f4f6;
+      color: #555;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+    
+    /* Read more button */
+    .research-link {
+      display: inline-block;
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .research-link:hover {
+      color: #3730a3;
+      text-decoration: underline;
+    }
+    
+    /* Responsive design for mobile */
+    @media (max-width: 768px) {
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="research-page">
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html" style="color: white; text-decoration: none;">CompanyName</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="homepage.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li id="loginNavItem"><a href="login.html" class="btn">Login</a></li>
+          <li id="userNavItem" style="display: none;">
+            <span id="userName" style="color: white; margin-right: 1rem;"></span>
+            <a href="#" id="logoutBtn" class="btn">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FILTER TABS -->
+  <section class="research-filters">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active">All Research</button>
+        <button class="filter-tab">AI & Machine Learning</button>
+        <button class="filter-tab">Data Science</button>
+        <button class="filter-tab">Web Development</button>
+        <button class="filter-tab">Cybersecurity</button>
+        <button class="filter-tab">Cloud Computing</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH GRID -->
+  <section class="research-content">
+    <div class="container">
+      <div class="research-grid">
+        
+        <!-- Research Paper 1 -->
+        <div class="research-card">
+          <div class="research-image">
+            <span class="research-category">AI</span>
+          </div>
+          <div class="research-content-card">
+            <h3>Machine Learning Applications in Healthcare Diagnostics</h3>
+            <div class="research-meta">
+              <span> Dec 2025</span>
+              <span> Dr. Emily Chen</span>
+            </div>
+            <p class="research-description">
+              Investigating the use of machine learning algorithms to improve early disease detection and diagnosis accuracy in medical imaging.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">Machine Learning</span>
+              <span class="research-tag">Healthcare</span>
+              <span class="research-tag">Computer Vision</span>
+            </div>
+            <a href="#" class="research-link">Read more →</a>
+          </div>
+        </div>
+
+        <!-- Research Paper 2 -->
+        <div class="research-card">
+          <div class="research-image">
+            <span class="research-category">Data Science</span>
+          </div>
+          <div class="research-content-card">
+            <h3>Big Data Analytics for Business Intelligence</h3>
+            <div class="research-meta">
+              <span> Nov 2025</span>
+              <span> Dr. Michael Brown</span>
+            </div>
+            <p class="research-description">
+              Exploring advanced data analytics techniques to extract actionable insights from large-scale enterprise data.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">Big Data</span>
+              <span class="research-tag">Analytics</span>
+              <span class="research-tag">Business</span>
+            </div>
+            <a href="#" class="research-link">Read more →</a>
+          </div>
+        </div>
+
+        <!-- Research Paper 3 -->
+        <div class="research-card">
+          <div class="research-image">
+            🔒
+            <span class="research-category">Security</span>
+          </div>
+          <div class="research-content-card">
+            <h3>Blockchain Technology for Secure Data Transactions</h3>
+            <div class="research-meta">
+              <span>📅 Oct 2025</span>
+              <span>👤 Dr. Sarah Johnson</span>
+            </div>
+            <p class="research-description">
+              Developing novel blockchain protocols to enhance security and transparency in distributed systems and financial transactions.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">Blockchain</span>
+              <span class="research-tag">Security</span>
+              <span class="research-tag">Cryptography</span>
+            </div>
+            <a href="#" class="research-link">Read more →</a>
+          </div>
+        </div>
+
+        <!-- Research Paper 4 -->
+        <div class="research-card">
+          <div class="research-image">
+            ☁️
+            <span class="research-category">Cloud</span>
+          </div>
+          <div class="research-content-card">
+            <h3>Optimizing Cloud Infrastructure for Scalability</h3>
+            <div class="research-meta">
+              <span> Sep 2025</span>
+              <span> Dr. David Lee</span>
+            </div>
+            <p class="research-description">
+              Research on cloud architecture patterns and optimization strategies to improve performance and reduce operational costs.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">Cloud Computing</span>
+              <span class="research-tag">Infrastructure</span>
+              <span class="research-tag">DevOps</span>
+            </div>
+            <a href="#" class="research-link">Read more →</a>
+          </div>
+        </div>
+
+        <!-- Research Paper 5 -->
+        <div class="research-card">
+          <div class="research-image">
+          
+            <span class="research-category">Web</span>
+          </div>
+          <div class="research-content-card">
+            <h3>Next-Generation Web Frameworks and Performance</h3>
+            <div class="research-meta">
+              <span> Aug 2025</span>
+              <span> Dr. Lisa Wang</span>
+            </div>
+            <p class="research-description">
+              Evaluating modern web development frameworks and their impact on application performance, user experience, and developer productivity.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">Web Development</span>
+              <span class="research-tag">Performance</span>
+              <span class="research-tag">UX</span>
+            </div>
+            <a href="#" class="research-link">Read more →</a>
+          </div>
+        </div>
+
+        <!-- Research Paper 6 -->
+        <div class="research-card">
+          <div class="research-image">
+            
+            <span class="research-category">AI</span>
+          </div>
+          <div class="research-content-card">
+            <h3>Natural Language Processing for Conversational AI</h3>
+            <div class="research-meta">
+              <span> Jul 2025</span>
+              <span> Dr. Robert Taylor</span>
+            </div>
+            <p class="research-description">
+              Advancing NLP techniques to create more natural and context-aware conversational AI systems with improved understanding capabilities.
+            </p>
+            <div class="research-tags">
+              <span class="research-tag">NLP</span>
+              <span class="research-tag">AI</span>
+              <span class="research-tag">Chatbots</span>
+            </div>
+            <a href="#" class="research-link">Read more →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 CompanyName. All rights reserved.</p>
+  </footer>
+
+  <script src="auth.js"></script>
+</body>
+</html>
