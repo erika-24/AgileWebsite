@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #151515;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 320px;
+            background: #1a1a1a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 32px;
+        }
+
+        .product-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: #a0a0a0;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .product-image {
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Featured Products</h1>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" alt="Product 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product 1</h3>
+                    <p class="product-description">
+                        Description: High-quality wireless headphones with premium sound quality and noise cancellation technology for immersive listening experience.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop" alt="Product 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product 2</h3>
+                    <p class="product-description">
+                        Description: Elegant timepiece featuring automatic movement and sapphire crystal glass with water resistance up to 50 meters.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=400&fit=crop" alt="Product 3">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product 3</h3>
+                    <p class="product-description">
+                        Description: Premium sunglasses with polarized lenses offering UV protection and modern design perfect for any occasion.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=400&fit=crop" alt="Product 4">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product 4</h3>
+                    <p class="product-description">
+                        Description: Classic leather sneakers crafted from premium materials with comfortable cushioning for all-day wear.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=400&fit=crop" alt="Product 5">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product 5</h3>
+                    <p class="product-description">
+                        Description: Versatile backpack with multiple compartments and padded laptop sleeve made from durable water-resistant fabric.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&h=400&fit=crop" alt="Product 6">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Product 6</h3>
+                    <p class="product-description">
+                        Description: Smart fitness tracker with heart rate monitoring and sleep tracking features in a sleek minimalist design.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Interactive features can be added here
+    </script>
+</body>
+</html>
