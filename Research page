@@ -266,14 +266,13 @@
         <!-- Research Paper 3 -->
         <div class="research-card">
           <div class="research-image">
-            🔒
             <span class="research-category">Security</span>
           </div>
           <div class="research-content-card">
             <h3>Blockchain Technology for Secure Data Transactions</h3>
             <div class="research-meta">
-              <span>📅 Oct 2025</span>
-              <span>👤 Dr. Sarah Johnson</span>
+              <span> Oct 2025</span>
+              <span> Dr. Sarah Johnson</span>
             </div>
             <p class="research-description">
               Developing novel blockchain protocols to enhance security and transparency in distributed systems and financial transactions.
