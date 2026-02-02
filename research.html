@@ -5,241 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research - CardioGuard</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Research Page Styles */
-    .research-page {
-      min-height: 100vh;
-      background: #f9fafb;
-    }
-    
-    /* Filter tabs for research categories */
-    .research-filters {
-      background: white;
-      padding: 2rem 0;
-      border-bottom: 1px solid #e5e7eb;
-      margin-top: 2rem;
-    }
-    
-    .filter-tabs {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .filter-tab {
-      padding: 0.7rem 1.5rem;
-      background: #f3f4f6;
-      color: #666;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    
-    .filter-tab:hover {
-      background: #e5e7eb;
-    }
-    
-    .filter-tab.active {
-      background: #4f46e5;
-      color: white;
-    }
-    
-    /* Research papers grid layout */
-    .research-content {
-      padding: 4rem 0;
-    }
-    
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2.5rem;
-    }
-    
-    /* Individual research paper card */
-    .research-card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .research-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    }
-    
-    /* Research card header image */
-    .research-image {
-      width: 100%;
-      height: 220px;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    /* The actual image */
-    .research-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Optional dark overlay for readability */
-    .research-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.35));
-      pointer-events: none;
-    }
-
-    /* Icon stays on top */
-    .research-icon {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      z-index: 2;
-      width: 48px;
-      height: 48px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-
-    /* Category badge stays on top */
-    .research-category {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #4f46e5;
-    }
-
-    /* Icon in top-left of card (heart, shield, bell, sensor, etc.) */
-    .research-icon {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      width: 48px;
-      height: 48px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-    }
-    
-    /* Category badge on research card */
-    .research-category {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #4f46e5;
-    }
-    
-    /* Research card content area */
-    .research-content-card {
-      padding: 1.5rem;
-    }
-    
-    .research-content-card h3 {
-      font-size: 1.3rem;
-      color: #111;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-    
-    /* Research metadata (date, authors) */
-    .research-meta {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-      color: #999;
-    }
-    
-    .research-meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    
-    /* Research paper abstract/description */
-    .research-description {
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    
-    /* Tags for research topics */
-    .research-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .research-tag {
-      background: #f3f4f6;
-      color: #555;
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
-    }
-    
-    /* Read more button */
-    .research-link {
-      display: inline-block;
-      color: #4f46e5;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    
-    .research-link:hover {
-      color: #3730a3;
-      text-decoration: underline;
-    }
-    
-    /* Responsive design for mobile */
-    @media (max-width: 768px) {
-      .research-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .filter-tabs {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding: 0 1rem;
-      }
-    }
-  </style>
 </head>
 <body class="research-page">
-  <!-- NAVBAR -->
+
   <header class="navbar">
     <div class="container">
-      <h1 class="logo"><a href="index.html" style="color: white; text-decoration: none;">CardioGuard</a></h1>
+      <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -253,7 +24,6 @@
     </div>
   </header>
 
-  <!-- FILTER TABS -->
   <section class="research-filters" id="research">
     <div class="container">
       <div class="filter-tabs">
@@ -267,15 +37,13 @@
     </div>
   </section>
 
-  <!-- RESEARCH GRID -->
   <section class="research-content">
     <div class="container">
       <div class="research-grid">
         
-        <!-- Research 1 -->
         <div class="research-card" data-category="wearables">
           <div class="research-image">
-            <img src="images/research_ppg.png" alt="Photoplethysmography sensing concept image">
+            <img src="images/research_ppg.png" alt="Photoplethysmography">
             <span class="research-icon" aria-hidden="true">❤️</span>
             <span class="research-category">Wearables</span>
           </div>
@@ -285,21 +53,19 @@
               <span>2023 · Electronics Journal</span>
             </div>
             <p class="research-description">
-              Photoplethysmography is widely studied as a non invasive method for continuously measuring heart rate blood oxygen saturation and other cardiovascular signals in wearable devices. Research shows that PPG based sensing can perform reliably in rings and wrist worn devices when supported by appropriate signal processing and motion handling strategies. This research informs the sensing approach used in the CardioGuard Ring and CardioGuard Band for continuous heart rate and blood oxygen monitoring.
+              Photoplethysmography is widely studied as a non invasive method for continuously measuring heart rate blood oxygen saturation and other cardiovascular signals in wearable devices.
             </p>
             <div class="research-tags">
               <span class="research-tag">PPG</span>
               <span class="research-tag">Wearables</span>
-              <span class="research-tag">Vital Signs</span>
             </div>
             <a href="https://www.mdpi.com/2079-9292/12/13/2923" class="research-link" target="_blank" rel="noopener">Read more →</a>
           </div>
         </div>
 
-        <!-- Research 2 -->
         <div class="research-card" data-category="cardiac-safety">
           <div class="research-image">
-            <img src="images/research_arrhythmia.png" alt="Heart rhythm waveform concept image">
+            <img src="images/research_arrhythmia.png" alt="Arrhythmia Detection">
             <span class="research-icon" aria-hidden="true">🫀</span>
             <span class="research-category">Cardiac Safety</span>
           </div>
@@ -309,21 +75,19 @@
               <span>2025 · Sensors Journal</span>
             </div>
             <p class="research-description">
-              Advances in wearable technology have enabled the detection of cardiac rhythm abnormalities outside of traditional clinical environments. Clinical studies show that wearable devices using ECG and optical sensors can identify arrhythmias such as atrial fibrillation and support earlier intervention through continuous monitoring. This research supports CardioGuard’s focus on long term rhythm tracking and early detection of cardiac events using wearable devices.
+              Advances in wearable technology have enabled the detection of cardiac rhythm abnormalities outside of traditional clinical environments.
             </p>
             <div class="research-tags">
               <span class="research-tag">Arrhythmia</span>
               <span class="research-tag">ECG</span>
-              <span class="research-tag">Wearables</span>
             </div>
             <a href="https://www.mdpi.com/1424-8220/25/9/2848" class="research-link" target="_blank" rel="noopener">Read more →</a>
           </div>
         </div>
 
-        <!-- Research 3 -->
         <div class="research-card" data-category="reliability">
           <div class="research-image">
-            <img src="images/research_patch.png" alt="Chest ECG patch concept image">
+            <img src="images/research_patch.png" alt="ECG Patch">
             <span class="research-icon" aria-hidden="true">🩹</span>
             <span class="research-category">Reliability</span>
           </div>
@@ -333,45 +97,41 @@
               <span>2025 · Systematic Review</span>
             </div>
             <p class="research-description">
-              Single lead ECG chest patches have demonstrated strong performance for long term cardiac rhythm monitoring with high patient comfort and compliance. Compared with traditional Holter monitors ECG patches enable extended wear during daily activities and sleep while capturing clinically meaningful events. This research informs the design of the CardioGuard Patch as a complementary solution for continuous ECG monitoring when other wearables are not worn.
+              Single lead ECG chest patches have demonstrated strong performance for long term cardiac rhythm monitoring with high patient comfort.
             </p>
             <div class="research-tags">
               <span class="research-tag">ECG</span>
               <span class="research-tag">Patch</span>
-              <span class="research-tag">Sleep</span>
             </div>
             <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11853970/" class="research-link" target="_blank" rel="noopener">Read more →</a>
           </div>
         </div>
 
-        <!-- Research 4 -->
         <div class="research-card" data-category="alerts">
           <div class="research-image">
-            <img src="images/research_alerts.png" alt="Alert escalation concept image">
+            <img src="images/research_alerts.png" alt="Alert Sensitivity">
             <span class="research-icon" aria-hidden="true">🔔</span>
             <span class="research-category">Alerts</span>
           </div>
           <div class="research-content-card">
-            <h3>Alert Sensitivity and Threshold Design in Health Monitoring Systems</h3>
+            <h3>Alert Sensitivity and Threshold Design</h3>
             <div class="research-meta">
               <span>2025 · JMIR Formative Research</span>
             </div>
             <p class="research-description">
-              Health monitoring systems must balance sensitivity with usability to avoid overwhelming users while still identifying critical events. Research shows that tiered alert levels and carefully tuned thresholds can reduce alert fatigue and improve trust in wearable health systems. This research directly informs CardioGuard’s alert tier design and escalation logic when users do not respond to critical notifications.
+              Health monitoring systems must balance sensitivity with usability to avoid overwhelming users while still identifying critical events.
             </p>
             <div class="research-tags">
               <span class="research-tag">Alerts</span>
               <span class="research-tag">Thresholds</span>
-              <span class="research-tag">User Experience</span>
             </div>
             <a href="https://formative.jmir.org/2025/1/e65139" class="research-link" target="_blank" rel="noopener">Read more →</a>
           </div>
         </div>
 
-        <!-- Research 5 -->
         <div class="research-card" data-category="privacy">
           <div class="research-image">
-            <img src="images/research_privacy.png" alt="Secure health data sharing concept image">
+            <img src="images/research_privacy.png" alt="Privacy and Consent">
             <span class="research-icon" aria-hidden="true">🛡️</span>
             <span class="research-category">Privacy</span>
           </div>
@@ -381,45 +141,42 @@
               <span>2025 · BMJ Innovations</span>
             </div>
             <p class="research-description">
-              User trust is essential for wearable health technologies that share sensitive data. Research indicates that clear consent mechanisms and transparent data sharing controls improve user understanding and acceptance when health information is shared with caregivers or medical professionals. This research underpins CardioGuard’s privacy controls and user managed alert sharing preferences.
+              User trust is essential for wearable health technologies. Research indicates that clear consent mechanisms improve user understanding.
             </p>
             <div class="research-tags">
               <span class="research-tag">Privacy</span>
               <span class="research-tag">Consent</span>
-              <span class="research-tag">Health Data</span>
             </div>
             <a href="https://innovations.bmj.com/content/6/2/55" class="research-link" target="_blank" rel="noopener">Read more →</a>
           </div>
         </div>
 
-        <!-- Research 6 -->
         <div class="research-card" data-category="reliability">
           <div class="research-image">
-            <img src="images/research_bp.png" alt="Multi device health signal fusion concept image">
+            <img src="images/research_bp.png" alt="Blood Pressure Estimation">
             <span class="research-icon" aria-hidden="true">📈</span>
             <span class="research-category">Reliability</span>
           </div>
           <div class="research-content-card">
-            <h3>Noninvasive Blood Pressure Estimation Using Multi Sensor Wearables</h3>
+            <h3>Noninvasive Blood Pressure Estimation</h3>
             <div class="research-meta">
               <span>2025 · ScienceDirect</span>
             </div>
             <p class="research-description">
-              Recent studies show that combining signals from multiple wearable sensors can enable noninvasive blood pressure estimation and trend tracking. Integrating data from ECG and optical sensors improves reliability and supports longitudinal monitoring outside of clinical settings. This research supports the integration of the CardioGuard Cuff with ring and band data to provide a unified view of blood pressure trends.
+              Recent studies show that combining signals from multiple wearable sensors can enable noninvasive blood pressure estimation.
             </p>
             <div class="research-tags">
               <span class="research-tag">Blood Pressure</span>
               <span class="research-tag">Multi Sensor</span>
-              <span class="research-tag">Wearables</span>
             </div>
             <a href="https://www.sciencedirect.com/science/article/pii/S0263224124013319" class="research-link" target="_blank" rel="noopener">Read more →</a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p>© 2026 CardioGuard. All rights reserved.</p>
   </footer>
@@ -440,13 +197,9 @@
       tab.addEventListener("click", () => {
         tabs.forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
-  
-        const filter = tab.dataset.filter || "all";
-        applyFilter(filter);
+        applyFilter(tab.dataset.filter || "all");
       });
     });
-  
-    // default
     applyFilter("all");
   </script>
   
