@@ -17,7 +17,44 @@
             background: #0a0a0a;
             color: #ffffff;
             line-height: 1.6;
-            padding: 60px 20px;
+            padding: 0 20px 60px;
+        }
+
+        .navbar {
+            background: #111;
+            color: #fff;
+            padding: 1rem 0;
+            margin: 0 -20px 0 -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .navbar .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .navbar .btn {
+            background: #fff;
+            color: #111;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
         }
 
         .container {
@@ -28,6 +65,7 @@
         .header {
             text-align: center;
             margin-bottom: 80px;
+            padding-top: 40px;
             animation: fadeIn 0.8s ease-out;
         }
 
@@ -111,8 +149,6 @@
             margin-bottom: 24px;
         }
 
-
-
         @media (max-width: 768px) {
             .products-grid {
                 grid-template-columns: 1fr;
@@ -129,86 +165,102 @@
     </style>
 </head>
 <body>
+    <header class="navbar">
+        <div class="nav-container">
+            <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="productsPage.html">Products</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="index.html#contact" class="btn">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="container">
         <div class="header">
             <h1>Featured Products</h1>
         </div>
 
         <div class="products-grid">
-            <!-- Product 1 -->
+            <!-- CardioGuard Ring -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" alt="Product 1">
+                    <img src="images/ring.png" alt="CardioGuard Ring">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Product 1</h3>
+                    <h3 class="product-name">CardioGuard Ring</h3>
                     <p class="product-description">
-                        Description: High-quality wireless headphones with premium sound quality and noise cancellation technology for immersive listening experience.
+                        Wearable ring for continuous cardiac monitoring. Tracks HR, SpO₂, rhythm, and blood pressure. 5 to 7 day battery, up to 30 days offline storage. Pairs with the CardioGuard app via Bluetooth for early detection and peace of mind.
                     </p>
                 </div>
             </div>
 
-            <!-- Product 2 -->
+            <!-- CardioGuard Band -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&h=400&fit=crop" alt="Product 2">
+                    <img src="images/band.png" alt="CardioGuard Band">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Product 2</h3>
+                    <h3 class="product-name">CardioGuard Band</h3>
                     <p class="product-description">
-                        Description: Elegant timepiece featuring automatic movement and sapphire crystal glass with water resistance up to 50 meters.
+                        Wrist wearable with continuous ECG and vitals. Syncs to the CardioGuard app over Bluetooth so you can monitor cardiac health without frequent hospital visits. Ideal for all-day wear when you prefer a band over a ring.
                     </p>
                 </div>
             </div>
 
-            <!-- Product 3 -->
+            <!-- CardioGuard Patch -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&h=400&fit=crop" alt="Product 3">
+                    <img src="images/patch.png" alt="CardioGuard Patch">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Product 3</h3>
+                    <h3 class="product-name">CardioGuard Patch</h3>
                     <p class="product-description">
-                        Description: Premium sunglasses with polarized lenses offering UV protection and modern design perfect for any occasion.
+                        Single-lead ECG chest patch that sticks securely for days. Bluetooth connection to the app for continuous rhythm and event logging. Perfect for sleep or when you’re not wearing the ring. Reduces gaps in monitoring.
                     </p>
                 </div>
             </div>
 
-            <!-- Product 4 -->
+            <!-- CardioGuard Cuff -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=400&fit=crop" alt="Product 4">
+                    <img src="images/cuff.png" alt="CardioGuard Cuff">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Product 4</h3>
+                    <h3 class="product-name">CardioGuard Cuff</h3>
                     <p class="product-description">
-                        Description: Classic leather sneakers crafted from premium materials with comfortable cushioning for all-day wear.
+                        Smart blood pressure cuff that pairs with the CardioGuard app via Bluetooth. Logs BP alongside ring and band data for one view of trends. Helps with early detection and lower healthcare costs.
                     </p>
                 </div>
             </div>
 
-            <!-- Product 5 -->
+            <!-- CardioGuard Clip -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=400&fit=crop" alt="Product 5">
+                    <img src="images/clip.png" alt="CardioGuard Clip">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Product 5</h3>
+                    <h3 class="product-name">CardioGuard Clip</h3>
                     <p class="product-description">
-                        Description: Versatile backpack with multiple compartments and padded laptop sleeve made from durable water-resistant fabric.
+                        Finger pulse oximeter that syncs SpO₂ and HR to the app over Bluetooth. Use for spot checks or as backup to the ring. Lightweight and pocket-friendly for on-the-go cardiac peace of mind.
                     </p>
                 </div>
             </div>
 
-            <!-- Product 6 -->
+            <!-- CardioGuard Hub -->
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&h=400&fit=crop" alt="Product 6">
+                    <img src="images/hub.png" alt="CardioGuard Hub">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Product 6</h3>
+                    <h3 class="product-name">CardioGuard Hub</h3>
                     <p class="product-description">
-                        Description: Smart fitness tracker with heart rate monitoring and sleep tracking features in a sleek minimalist design.
+                        Bedside charger and Bluetooth sync station for your CardioGuard Ring. Overnight upload to the app and optional morning summary so you and your care team stay informed with minimal effort.
                     </p>
                 </div>
             </div>

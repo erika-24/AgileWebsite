@@ -3,20 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CompanyName</title>
+  <title>CardioGuard Heart Safety and Early Warning</title>
   <link rel="stylesheet" href="style.css" />
-</head>
+  <style>
+    /* Homepage: Hero with image on right */
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      text-align: left;
+    }
+    .hero-text h2 { font-size: 2.2rem; margin-bottom: 1rem; line-height: 1.3; }
+    .hero-text p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1.5rem; }
+    .hero-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    .hero-image img { width: 100%; height: auto; display: block; }
+    @media (max-width: 768px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; }
+      .hero-text h2 { font-size: 1.75rem; }
+    }
 
+    /* Feature cards with icons */
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .feature-icon.vitals { background: #dbeafe; color: #1d4ed8; }
+    .feature-icon.alerts { background: #fef3c7; color: #b45309; }
+    .feature-icon.privacy { background: #d1fae5; color: #047857; }
+
+    /* About: text + device image */
+    .about .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      text-align: left;
+    }
+    .about-text h3 { margin-bottom: 1rem; }
+    .about-text p { margin-bottom: 0.75rem; }
+    .about-image { border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .about-image img { width: 100%; height: auto; display: block; }
+    @media (max-width: 768px) {
+      .about .container { grid-template-columns: 1fr; text-align: center; }
+    }
+  </style>
+</head>
 <body>
 
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container">
-      <h1 class="logo">CompanyName</h1>
+      <h1 class="logo"><a href="index.html" style="color: white; text-decoration: none;">CardioGuard</a></h1>
       <nav>
         <ul class="nav-links">
           <li><a href="#features">Features</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="productsPage.html">Products</a></li>
+          <li><a href="research.html">Research</a></li>
           <li><a href="#contact" class="btn">Contact</a></li>
         </ul>
       </nav>
@@ -25,12 +85,16 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-content">
-      <h2>Your product’s big value proposition</h2>
-      <p>
-        A short sentence explaining what your company does and why it matters.
-      </p>
-      <a href="#contact" class="btn-primary">Get Started</a>
+    <div class="container">
+      <div class="hero-text">
+        <h2>Heart safety and early warning across wearables and devices.</h2>
+        <p>We offer a full line of cardiac monitoring products: ring, band, patch, cuff, clip, and hub. Continuous monitoring, tiered alerts, and no-response escalation so help reaches you or your loved ones when it matters.</p>
+        <a href="productsPage.html" class="btn-primary">Get Started</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero_image.png"
+             alt="CardioGuard wearable heart monitoring" />
+      </div>      
     </div>
   </section>
 
@@ -40,16 +104,19 @@
       <h3>Features</h3>
       <div class="feature-grid">
         <div class="feature-card">
-          <h4>Feature One</h4>
-          <p>Short description of the feature.</p>
+          <div class="feature-icon vitals" aria-hidden="true">❤️</div>
+          <h4>Continuous Vitals Tracking</h4>
+          <p>HR, SpO₂, blood pressure, and rhythm tracked continuously so you and your care network stay informed.</p>
         </div>
         <div class="feature-card">
-          <h4>Feature Two</h4>
-          <p>Short description of the feature.</p>
+          <div class="feature-icon alerts" aria-hidden="true">🔔</div>
+          <h4>Smart Alerts and Escalation</h4>
+          <p>Critical, High, Medium, and Low severity levels with no-response escalation to emergency contacts when needed.</p>
         </div>
         <div class="feature-card">
-          <h4>Feature Three</h4>
-          <p>Short description of the feature.</p>
+          <div class="feature-icon privacy" aria-hidden="true">🛡️</div>
+          <h4>Privacy and Trusted Sharing</h4>
+          <p>You choose who receives alerts, family or hospital, with configurable sensitivity to minimize unnecessary exposure.</p>
         </div>
       </div>
     </div>
@@ -58,10 +125,14 @@
   <!-- ABOUT -->
   <section id="about" class="about">
     <div class="container">
-      <h3>About Us</h3>
-      <p>
-        Brief paragraph about your company, mission, and vision.
-      </p>
+      <div class="about-text">
+        <h3>About Us</h3>
+        <p>CardioGuard is built for people at higher cardiac risk and those living alone. We offer a full product line for cardiac monitoring: ring, band, patch, cuff, clip, and hub. Our goal is to reduce delay in getting help and improve outcomes through timely, reliable alerts.</p>
+        <p>We focus on trust: auditable delivery logs and dependable notifications so you and your loved ones can rely on the system when it matters most.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500&h=400&fit=crop" alt="CardioGuard devices" />
+      </div>
     </div>
   </section>
 
@@ -80,7 +151,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2026 CompanyName. All rights reserved.</p>
+    <p>© 2026 CardioGuard. All rights reserved.</p>
   </footer>
 
 </body>
