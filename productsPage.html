@@ -7,10 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* Products Page Styles */
+        /* Products Page Styles - Dark Theme to Match Pricing */
         .products-page {
-            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            background: #0a0a0a;
             min-height: 100vh;
+            color: #ffffff;
         }
 
         .container-products {
@@ -26,9 +27,16 @@
 
         .products-header h1 {
             font-size: 3rem;
-            color: #2d3748;
+            color: #ffffff;
             margin-bottom: 15px;
             font-weight: 700;
+        }
+
+        .products-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Products Grid */
@@ -38,18 +46,20 @@
             gap: 35px;
         }
 
-        /* Product Card */
+        /* Product Card - Dark Theme */
         .product-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.4s ease;
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
         }
 
         /* Product Image */
@@ -66,7 +76,7 @@
             max-width: 100%;
             max-height: 240px;
             object-fit: contain;
-            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
         }
 
         /* Product Info */
@@ -77,14 +87,87 @@
         .product-name {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #2d3748;
+            color: #ffffff;
             margin-bottom: 18px;
         }
 
         .product-description {
-            color: #4a5568;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
             font-size: 1.05rem;
+        }
+
+        /* Badge */
+        .product-badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Price Tag */
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+        }
+
+        /* Button */
+        .product-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .product-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Key Features List */
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .product-features li {
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+
+        .product-features li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
         }
 
         /* Responsive */
@@ -125,7 +208,8 @@
 
     <div class="container-products">
         <div class="products-header">
-            <h1>Featured Products</h1>
+            <h1>Our Products</h1>
+            <p>Professional-grade cardiac monitoring devices designed for continuous health insights</p>
         </div>
 
         <div class="products-grid">
@@ -134,10 +218,18 @@
                     <img src="images/ring.png" alt="CardioGuard Ring">
                 </div>
                 <div class="product-info">
+                    <span class="product-badge">Most Popular</span>
                     <h3 class="product-name">CardioGuard Ring</h3>
                     <p class="product-description">
                         Wearable ring for continuous cardiac monitoring. Tracks HR, SpO₂, rhythm, and blood pressure. 5 to 7 day battery, up to 30 days offline storage. Pairs with the CardioGuard app via Bluetooth for early detection and peace of mind.
                     </p>
+                    <ul class="product-features">
+                        <li>5-7 day battery life</li>
+                        <li>30 days offline storage</li>
+                        <li>Continuous monitoring</li>
+                    </ul>
+                    <div class="product-price">$249 <span>hardware</span></div>
+                    <button class="product-btn">Learn More</button>
                 </div>
             </div>
 
@@ -146,10 +238,18 @@
                     <img src="images/band.png" alt="CardioGuard Band">
                 </div>
                 <div class="product-info">
+                    <span class="product-badge">Wrist Wearable</span>
                     <h3 class="product-name">CardioGuard Band</h3>
                     <p class="product-description">
                         Wrist wearable with continuous ECG and vitals. Syncs to the CardioGuard app over Bluetooth so you can monitor cardiac health without frequent hospital visits. Ideal for all-day wear when you prefer a band over a ring.
                     </p>
+                    <ul class="product-features">
+                        <li>Continuous ECG monitoring</li>
+                        <li>OLED touchscreen</li>
+                        <li>IP68 water resistant</li>
+                    </ul>
+                    <div class="product-price">$199 <span>hardware</span></div>
+                    <button class="product-btn">Learn More</button>
                 </div>
             </div>
 
@@ -158,10 +258,18 @@
                     <img src="images/patch.png" alt="CardioGuard Patch">
                 </div>
                 <div class="product-info">
+                    <span class="product-badge">Sleep Tracking</span>
                     <h3 class="product-name">CardioGuard Patch</h3>
                     <p class="product-description">
                         Single-lead ECG chest patch that sticks securely for days. Bluetooth connection to the app for continuous rhythm and event logging. Perfect for sleep or when you're not wearing the ring. Reduces gaps in monitoring.
                     </p>
+                    <ul class="product-features">
+                        <li>Up to 14 days wear time</li>
+                        <li>Medical-grade adhesive</li>
+                        <li>Perfect for sleep tracking</li>
+                    </ul>
+                    <div class="product-price">$149 <span>starter kit</span></div>
+                    <button class="product-btn">Learn More</button>
                 </div>
             </div>
 
@@ -170,10 +278,18 @@
                     <img src="images/cuff.png" alt="CardioGuard Cuff">
                 </div>
                 <div class="product-info">
+                    <span class="product-badge">Blood Pressure</span>
                     <h3 class="product-name">CardioGuard Cuff</h3>
                     <p class="product-description">
                         Smart blood pressure cuff that pairs with the CardioGuard app via Bluetooth. Logs BP alongside ring and band data for one view of trends. Helps with early detection and lower healthcare costs.
                     </p>
+                    <ul class="product-features">
+                        <li>Clinically validated accuracy</li>
+                        <li>Stores 200+ readings</li>
+                        <li>Guided measurements</li>
+                    </ul>
+                    <div class="product-price">$129 <span>hardware</span></div>
+                    <button class="product-btn">Learn More</button>
                 </div>
             </div>
 
@@ -182,10 +298,18 @@
                     <img src="images/clip.png" alt="CardioGuard Clip">
                 </div>
                 <div class="product-info">
+                    <span class="product-badge">Spot Check</span>
                     <h3 class="product-name">CardioGuard Clip</h3>
                     <p class="product-description">
                         Finger pulse oximeter that syncs SpO₂ and HR to the app over Bluetooth. Use for spot checks or as backup to the ring. Lightweight and pocket-friendly for on-the-go cardiac peace of mind.
                     </p>
+                    <ul class="product-features">
+                        <li>10 second readings</li>
+                        <li>±2% SpO₂ accuracy</li>
+                        <li>Ultra-portable design</li>
+                    </ul>
+                    <div class="product-price">$79 <span>hardware</span></div>
+                    <button class="product-btn">Learn More</button>
                 </div>
             </div>
 
@@ -194,15 +318,26 @@
                     <img src="images/hub.png" alt="CardioGuard Hub">
                 </div>
                 <div class="product-info">
+                    <span class="product-badge">Home Station</span>
                     <h3 class="product-name">CardioGuard Hub</h3>
                     <p class="product-description">
                         Bedside charger and Bluetooth sync station for your CardioGuard Ring. Overnight upload to the app and optional morning summary so you and your care team stay informed with minimal effort.
                     </p>
+                    <ul class="product-features">
+                        <li>Wireless charging</li>
+                        <li>Automatic data sync</li>
+                        <li>Daily health summaries</li>
+                    </ul>
+                    <div class="product-price">$179 <span>hardware</span></div>
+                    <button class="product-btn">Learn More</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <footer class="footer">
+        <p>© 2026 CardioGuard. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
-
