@@ -6,6 +6,103 @@
     <title>Products</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Products Page Styles */
+        .products-page {
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        .container-products {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 60px;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .products-header h1 {
+            font-size: 3rem;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Product Image */
+        .product-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            max-height: 240px;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Product Info */
+        .product-info {
+            padding: 35px;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 18px;
+        }
+
+        .product-description {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .products-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                min-height: 250px;
+                padding: 40px;
+            }
+        }
+    </style>
 </head>
 <body class="products-page">
 
@@ -63,7 +160,7 @@
                 <div class="product-info">
                     <h3 class="product-name">CardioGuard Patch</h3>
                     <p class="product-description">
-                        Single-lead ECG chest patch that sticks securely for days. Bluetooth connection to the app for continuous rhythm and event logging. Perfect for sleep or when you’re not wearing the ring. Reduces gaps in monitoring.
+                        Single-lead ECG chest patch that sticks securely for days. Bluetooth connection to the app for continuous rhythm and event logging. Perfect for sleep or when you're not wearing the ring. Reduces gaps in monitoring.
                     </p>
                 </div>
             </div>
@@ -105,5 +202,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
