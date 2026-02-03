@@ -1,0 +1,811 @@
+<!-- pricing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardioGuard Pricing</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar matches your structure exactly -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="productsPage.html">Products</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="index.html#contact" class="btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero uses your hero section styling -->
+  <section class="hero pricing-hero">
+    <div class="container">
+      <div class="hero-text">
+        <h2>Simple pricing for serious protection.</h2>
+        <p>
+          CardioGuard is an ecosystem: <strong>hardware + a required membership</strong> that powers continuous monitoring,
+          tiered alerts, and (on Guardian tier) no-response escalation so help reaches you or your loved ones when it matters.
+        </p>
+
+        <div class="pricing-toggle" aria-label="Billing toggle">
+          <button type="button" id="toggleMonthly" class="active">Monthly</button>
+          <button type="button" id="toggleAnnual">Annual</button>
+        </div>
+        <div class="pricing-note" id="billingNote">Tip: Annual saves vs paying monthly.</div>
+        <br>
+        <a href="#membership" class="btn-primary">Choose a Membership</a>
+      </div>
+
+      <div class="hero-image">
+        <!-- Use your own asset if you have one; placeholder keeps layout consistent -->
+        <img src="images/hero_image.png" alt="CardioGuard wearable heart monitoring" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP + SUMMARY -->
+  <section id="membership" class="features">
+    <div class="container">
+      <h3>Membership</h3>
+
+      <div class="pricing-layout">
+        <!-- Left: Membership cards -->
+        <div class="pricing-grid-2">
+          <!-- Essential -->
+          <div class="pricing-card" data-plan-card="essential">
+            <span class="pricing-badge">Base Plan</span>
+            <h4>Essential</h4>
+            <p>Continuous monitoring + tiered alerts for everyday confidence.</p>
+
+            <div class="price-row">
+              <div class="price" id="essentialPrice">$19</div>
+              <div class="per" id="essentialPer">/ month</div>
+              <div class="strike" id="essentialStrike" style="display:none;">$228</div>
+            </div>
+
+            <ul class="bullets">
+              <li>Continuous monitoring + trend insights</li>
+              <li>Tiered alerts (Low → Critical)</li>
+              <li>Event log + weekly summaries</li>
+              <li>1 caregiver contact for notifications</li>
+            </ul>
+
+            <div class="btn-row">
+              <button class="btn-primary" type="button" data-action="choose-plan" data-plan="essential">Choose Essential</button>
+            </div>
+          </div>
+
+          <!-- Guardian -->
+          <div class="pricing-card" data-plan-card="guardian" style="border: 1px solid rgba(255,255,255,0.22);">
+            <span class="pricing-badge">Best for families</span>
+            <h4>Guardian</h4>
+            <p>Advanced alerts + no-response escalation for you and your circle.</p>
+
+            <div class="price-row">
+              <div class="price" id="guardianPrice">$39</div>
+              <div class="per" id="guardianPer">/ month</div>
+              <div class="strike" id="guardianStrike" style="display:none;">$468</div>
+            </div>
+
+            <ul class="bullets">
+              <li>Everything in Essential</li>
+              <li><strong>No-response escalation</strong> to caregivers</li>
+              <li>Up to 4 caregivers + escalation tree</li>
+              <li>Priority alerts + detailed reports</li>
+            </ul>
+
+            <div class="btn-row">
+              <button class="btn-primary" type="button" data-action="choose-plan" data-plan="guardian">Choose Guardian</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Summary -->
+        <aside class="pricing-card summary" aria-label="Kit summary">
+          <h4 style="margin-top:0;">Your Kit</h4>
+          <p style="margin-top:6px;">Select a membership + devices. Totals update automatically.</p>
+
+          <div class="summary-line">
+            <span>Billing</span>
+            <strong id="summaryBilling">Monthly</strong>
+          </div>
+          <div class="summary-line">
+            <span>Membership</span>
+            <strong id="summaryPlan">Not selected</strong>
+          </div>
+          <div class="summary-line">
+            <span>Devices</span>
+            <strong id="summaryDevices">0</strong>
+          </div>
+          <div class="summary-line">
+            <span>Patch delivery</span>
+            <strong id="summaryPatchDelivery">None</strong>
+          </div>
+
+          <div class="summary-total">
+            <div class="summary-line">
+              <span>Due today (hardware)</span>
+              <strong id="dueToday">$0</strong>
+            </div>
+            <div class="summary-line">
+              <span>Membership</span>
+              <strong id="membershipDue">$0/mo</strong>
+            </div>
+            <div class="summary-line" id="patchDueRow" style="display:none;">
+              <span>Patch delivery</span>
+              <strong id="patchDue">$0/mo</strong>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" id="continueBtn">Continue</button>
+            <button class="btn-secondary" type="button" id="resetBtn">Reset</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUNDLE -->
+  <section id="bundle" class="about">
+    <div class="container">
+      <div class="about-text">
+        <h3>Bundle & Save</h3>
+        <p>
+          Want full coverage across daily wear, sleep, home, and spot checks?
+          The Complete Care Bundle includes everything. Membership still required.
+        </p>
+
+        <div class="pricing-card" style="margin-top: 14px;">
+          <span class="pricing-badge">Complete kit</span>
+          <h4>Complete Care Bundle</h4>
+          <p>Ring + Band + Patch Starter + Cuff + Clip + Hub</p>
+
+          <div class="price-row">
+            <div class="price" id="bundlePrice">$899</div>
+            <div class="per">one-time hardware</div>
+            <div class="strike" id="bundleStrike">$1,099</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Minimize gaps during sleep + charging windows</li>
+            <li>Hub improves reliability at home</li>
+            <li>Patch auto-delivery optional</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" id="addBundleBtn">Add Bundle</button>
+            <button class="btn-secondary" type="button" id="bundleDetailsBtn">What’s included?</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <!-- Keep your existing pattern -->
+        <img src="https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500&h=400&fit=crop" alt="CardioGuard devices" />
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVICES -->
+  <section id="devices" class="features">
+    <div class="container">
+      <h3>Devices (Hardware)</h3>
+
+      <div class="pricing-grid-3">
+        <!-- Ring -->
+        <div class="pricing-card" data-device-card="ring">
+          <span class="pricing-badge">All-day</span>
+          <h4>CardioGuard Ring</h4>
+          <p>Wearable ring for continuous cardiac monitoring.</p>
+
+          <div class="price-row">
+            <div class="price" id="price-ring">$249</div>
+            <div class="per">hardware</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Tracks HR, SpO₂, rhythm insights</li>
+            <li>5–7 day battery + offline storage</li>
+            <li>Great default daily-wear option</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" data-action="toggle-device" data-device="ring">Add Ring</button>
+          </div>
+        </div>
+
+        <!-- Band -->
+        <div class="pricing-card" data-device-card="band">
+          <span class="pricing-badge">Wrist</span>
+          <h4>CardioGuard Band</h4>
+          <p>Wrist wearable with continuous ECG and vitals.</p>
+
+          <div class="price-row">
+            <div class="price" id="price-band">$199</div>
+            <div class="per">hardware</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Comfortable for daily use</li>
+            <li>On-demand ECG check-ins</li>
+            <li>Great alternative to ring</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" data-action="toggle-device" data-device="band">Add Band</button>
+          </div>
+        </div>
+
+        <!-- Patch -->
+        <div class="pricing-card" data-device-card="patch">
+          <span class="pricing-badge">Sleep</span>
+          <h4>CardioGuard Patch</h4>
+          <p>Single-lead ECG chest patch for extended wear.</p>
+
+          <div class="price-row">
+            <div class="price" id="price-patch">$149</div>
+            <div class="per">starter kit</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Secure wear for days</li>
+            <li>Perfect for sleep or charging windows</li>
+            <li>Reduces monitoring gaps</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" data-action="toggle-device" data-device="patch">Add Patch</button>
+          </div>
+
+          <div class="addon">
+            <div class="addon-top">
+              <label>
+                <input type="checkbox" id="patchDeliveryEnabled" />
+                Patch auto-delivery
+              </label>
+
+              <select id="patchDeliveryPlan" disabled>
+                <option value="none">Choose schedule</option>
+                <option value="4">4 patches / month — $24</option>
+                <option value="8">8 patches / month — $44</option>
+                <option value="12">12 patches / month — $60</option>
+              </select>
+            </div>
+            <p class="pricing-note" style="margin-bottom:0;">
+              Auto-delivery bills monthly. (Placeholder policy: pause anytime.)
+            </p>
+          </div>
+        </div>
+
+        <!-- Cuff -->
+        <div class="pricing-card" data-device-card="cuff">
+          <span class="pricing-badge">BP</span>
+          <h4>CardioGuard Cuff</h4>
+          <p>Blood pressure tracking for hypertension insights.</p>
+
+          <div class="price-row">
+            <div class="price" id="price-cuff">$129</div>
+            <div class="per">hardware</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Guided measurements in the app</li>
+            <li>Trends + correlation with events</li>
+            <li>Best for at-home routines</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" data-action="toggle-device" data-device="cuff">Add Cuff</button>
+          </div>
+        </div>
+
+        <!-- Clip -->
+        <div class="pricing-card" data-device-card="clip">
+          <span class="pricing-badge">Spot-check</span>
+          <h4>CardioGuard Clip</h4>
+          <p>Fast spot-checks for oxygenation and vitals.</p>
+
+          <div class="price-row">
+            <div class="price" id="price-clip">$79</div>
+            <div class="per">hardware</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Quick readings in seconds</li>
+            <li>Useful during symptoms</li>
+            <li>Great companion device</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" data-action="toggle-device" data-device="clip">Add Clip</button>
+          </div>
+        </div>
+
+        <!-- Hub -->
+        <div class="pricing-card" data-device-card="hub">
+          <span class="pricing-badge">Home</span>
+          <h4>CardioGuard Hub</h4>
+          <p>Home relay that boosts reliability and reduces gaps.</p>
+
+          <div class="price-row">
+            <div class="price" id="price-hub">$179</div>
+            <div class="per">hardware</div>
+          </div>
+
+          <ul class="bullets">
+            <li>Improves connectivity at home</li>
+            <li>Helps during charging windows</li>
+            <li>Optional but recommended</li>
+          </ul>
+
+          <div class="btn-row">
+            <button class="btn-primary" type="button" data-action="toggle-device" data-device="hub">Add Hub</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section id="compare" class="about">
+    <div class="container">
+      <div class="about-text">
+        <h3>Compare Memberships</h3>
+        <p>Both tiers power the CardioGuard ecosystem. Guardian adds no-response escalation and more caregivers.</p>
+
+        <table class="compare-table" aria-label="Membership comparison">
+          <thead>
+            <tr>
+              <th style="width: 44%;">Feature</th>
+              <th>Essential</th>
+              <th>Guardian</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Continuous monitoring</strong><br><span style="color: rgba(255,255,255,0.6);">Trends, events, summaries</span></td>
+              <td class="yes">Yes</td>
+              <td class="yes">Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Tiered alerts</strong><br><span style="color: rgba(255,255,255,0.6);">Low → Critical guidance</span></td>
+              <td class="yes">Yes</td>
+              <td class="yes">Yes + priority</td>
+            </tr>
+            <tr>
+              <td><strong>Caregivers</strong><br><span style="color: rgba(255,255,255,0.6);">Notifications to your circle</span></td>
+              <td class="yes">1 contact</td>
+              <td class="yes">Up to 4 + tree</td>
+            </tr>
+            <tr>
+              <td><strong>No-response escalation</strong><br><span style="color: rgba(255,255,255,0.6);">Escalate if you don’t respond</span></td>
+              <td class="no">—</td>
+              <td class="yes">Included</td>
+            </tr>
+            <tr>
+              <td><strong>Reports</strong><br><span style="color: rgba(255,255,255,0.6);">Detailed summaries</span></td>
+              <td class="yes">Standard</td>
+              <td class="yes">Enhanced</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="about-image">
+        <img src="heart-health.jpg" alt="Monitoring and healthcare" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + Contact -->
+  <section class="contact" id="faq">
+    <div class="container">
+      <h3>FAQ</h3>
+
+      <details>
+        <summary>Why is membership required?</summary>
+        <p>Membership powers the CardioGuard app, alerting, and caregiver workflows. Without it, the ecosystem features are unavailable.</p>
+      </details>
+
+      <details>
+        <summary>Do I need more than one device?</summary>
+        <p>Not necessarily. Many users start with a Ring or Band. Adding a Patch can reduce gaps during sleep or charging, and Hub improves at-home reliability.</p>
+      </details>
+
+      <details>
+        <summary>How does no-response escalation work?</summary>
+        <p>Guardian attempts to reach you first. If you don’t respond within a defined window, alerts escalate through your caregiver list (placeholder logic for prototype).</p>
+      </details>
+
+      <details>
+        <summary>How does patch auto-delivery work?</summary>
+        <p>Choose a monthly schedule (4/8/12). It bills monthly and can be changed or paused anytime (placeholder policy).</p>
+      </details>
+
+      <div style="margin-top: 18px;">
+        <a href="index.html#contact" class="btn-primary">Still have questions? Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 CardioGuard. All rights reserved.</p>
+  </footer>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script>
+    // --------- Config (edit these numbers anytime) ----------
+    const PRICES = {
+      billing: "monthly", // "monthly" | "annual"
+      plans: {
+        essential: { name: "Essential", monthly: 19, annual: 190 },
+        guardian:  { name: "Guardian",  monthly: 39, annual: 390 }
+      },
+      devices: {
+        ring:  { name: "CardioGuard Ring",  price: 249 },
+        band:  { name: "CardioGuard Band",  price: 199 },
+        patch: { name: "CardioGuard Patch (Starter)", price: 149 },
+        cuff:  { name: "CardioGuard Cuff",  price: 129 },
+        clip:  { name: "CardioGuard Clip",  price: 79  },
+        hub:   { name: "CardioGuard Hub",   price: 179 }
+      },
+      bundle: {
+        name: "Complete Care Bundle",
+        includes: ["ring","band","patch","cuff","clip","hub"],
+        price: 899,
+        strike: 1099
+      },
+      patchDelivery: {
+        options: {
+          4:  { label: "4 patches / month",  monthly: 24 },
+          8:  { label: "8 patches / month",  monthly: 44 },
+          12: { label: "12 patches / month", monthly: 60 }
+        }
+      }
+    };
+
+    // --------- State ----------
+    const state = {
+      billing: PRICES.billing,
+      plan: null,                 // "essential" | "guardian"
+      devices: new Set(),         // device keys
+      bundleActive: false,
+      patchDeliveryEnabled: false,
+      patchDeliveryQty: null      // "4" | "8" | "12"
+    };
+
+    // --------- Helpers ----------
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    function money(n){
+      return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+    }
+
+    function showToast(msg){
+      const t = $("#toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => t.classList.remove("show"), 1600);
+    }
+
+    function setBilling(mode){
+      state.billing = mode;
+
+      // Toggle buttons
+      $("#toggleMonthly").classList.toggle("active", mode === "monthly");
+      $("#toggleAnnual").classList.toggle("active", mode === "annual");
+
+      // Hero note
+      $("#summaryBilling").textContent = mode === "monthly" ? "Monthly" : "Annual";
+      $("#billingNote").textContent = mode === "monthly"
+        ? "Tip: Annual saves vs paying monthly."
+        : "Annual billing selected. (Membership billed yearly.)";
+
+      // Update UI for plan pricing
+      const e = PRICES.plans.essential;
+      const g = PRICES.plans.guardian;
+
+      if(mode === "monthly"){
+        $("#essentialPrice").textContent = `$${e.monthly}`;
+        $("#essentialPer").textContent = "/ month";
+        $("#essentialStrike").style.display = "none";
+
+        $("#guardianPrice").textContent = `$${g.monthly}`;
+        $("#guardianPer").textContent = "/ month";
+        $("#guardianStrike").style.display = "none";
+      } else {
+        $("#essentialPrice").textContent = money(e.annual);
+        $("#essentialPer").textContent = "/ year";
+        $("#essentialStrike").style.display = "inline";
+        $("#essentialStrike").textContent = `$${e.monthly * 12}`;
+
+        $("#guardianPrice").textContent = money(g.annual);
+        $("#guardianPer").textContent = "/ year";
+        $("#guardianStrike").style.display = "inline";
+        $("#guardianStrike").textContent = `$${g.monthly * 12}`;
+      }
+
+      render();
+    }
+
+    function choosePlan(planKey){
+      state.plan = planKey;
+
+      // Visual highlight
+      $$("[data-plan-card]").forEach(card => {
+        const on = card.getAttribute("data-plan-card") === planKey;
+        card.style.outline = on ? "2px solid rgba(255,255,255,0.28)" : "none";
+      });
+
+      $("#summaryPlan").textContent = PRICES.plans[planKey].name;
+      showToast(`Selected ${PRICES.plans[planKey].name}`);
+      render();
+    }
+
+    function toggleDevice(deviceKey){
+      // If bundle is active, switch to custom kit
+      if(state.bundleActive){
+        state.bundleActive = false;
+        showToast("Bundle removed (custom kit enabled)");
+      }
+
+      if(state.devices.has(deviceKey)){
+        state.devices.delete(deviceKey);
+      } else {
+        state.devices.add(deviceKey);
+      }
+
+      // If patch removed, disable patch delivery
+      if(!state.devices.has("patch")){
+        state.patchDeliveryEnabled = false;
+        state.patchDeliveryQty = null;
+        $("#patchDeliveryEnabled").checked = false;
+        $("#patchDeliveryPlan").value = "none";
+        $("#patchDeliveryPlan").disabled = true;
+      }
+
+      render();
+    }
+
+    function addBundle(){
+      state.bundleActive = true;
+      state.devices = new Set(PRICES.bundle.includes);
+      render();
+      showToast("Added Complete Care Bundle");
+    }
+
+    function resetAll(){
+      state.plan = null;
+      state.devices = new Set();
+      state.bundleActive = false;
+      state.patchDeliveryEnabled = false;
+      state.patchDeliveryQty = null;
+
+      // Reset UI
+      $("#summaryPlan").textContent = "Not selected";
+      $$("[data-plan-card]").forEach(card => card.style.outline = "none");
+
+      $("#patchDeliveryEnabled").checked = false;
+      $("#patchDeliveryPlan").value = "none";
+      $("#patchDeliveryPlan").disabled = true;
+
+      render();
+      showToast("Reset");
+    }
+
+    function computeTotals(){
+      // Hardware due today
+      let hardware = 0;
+      if(state.bundleActive){
+        hardware = PRICES.bundle.price;
+      } else {
+        for(const k of state.devices) hardware += PRICES.devices[k].price;
+      }
+
+      // Membership recurring
+      let membership = 0;
+      let membershipLabel = state.billing === "monthly" ? "/mo" : "/yr";
+      if(state.plan) membership = PRICES.plans[state.plan][state.billing];
+
+      // Patch delivery recurring monthly only
+      let patchRecurring = 0;
+      if(state.patchDeliveryEnabled && state.patchDeliveryQty){
+        patchRecurring = PRICES.patchDelivery.options[state.patchDeliveryQty].monthly;
+      }
+
+      return { hardware, membership, membershipLabel, patchRecurring };
+    }
+
+    function renderDeviceButtons(){
+      $$("[data-action='toggle-device']").forEach(btn => {
+        const key = btn.getAttribute("data-device");
+        const isOn = state.devices.has(key);
+        btn.textContent = isOn ? `Remove ${capitalize(key)}` : `Add ${capitalize(key)}`;
+      });
+
+      $$("[data-device-card]").forEach(card => {
+        const key = card.getAttribute("data-device-card");
+        card.style.outline = state.devices.has(key) ? "2px solid rgba(255,255,255,0.22)" : "none";
+      });
+    }
+
+    function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    function render(){
+      // Populate device price labels from config
+      $("#price-ring").textContent  = money(PRICES.devices.ring.price);
+      $("#price-band").textContent  = money(PRICES.devices.band.price);
+      $("#price-patch").textContent = money(PRICES.devices.patch.price);
+      $("#price-cuff").textContent  = money(PRICES.devices.cuff.price);
+      $("#price-clip").textContent  = money(PRICES.devices.clip.price);
+      $("#price-hub").textContent   = money(PRICES.devices.hub.price);
+
+      // Bundle pricing
+      $("#bundlePrice").textContent = money(PRICES.bundle.price);
+      $("#bundleStrike").textContent = money(PRICES.bundle.strike);
+
+      // Patch delivery enable/disable: only meaningful if patch is selected
+      const hasPatch = state.devices.has("patch");
+      $("#patchDeliveryEnabled").disabled = !hasPatch;
+      $("#patchDeliveryPlan").disabled = !(hasPatch && $("#patchDeliveryEnabled").checked);
+
+      // Summary devices count
+      $("#summaryDevices").textContent = String(state.devices.size);
+
+      // Patch delivery summary
+      if(state.patchDeliveryEnabled && state.patchDeliveryQty){
+        $("#summaryPatchDelivery").textContent = PRICES.patchDelivery.options[state.patchDeliveryQty].label;
+      } else {
+        $("#summaryPatchDelivery").textContent = "None";
+      }
+
+      // Totals
+      const totals = computeTotals();
+      $("#dueToday").textContent = money(totals.hardware);
+
+      if(state.plan){
+        $("#membershipDue").textContent = `${money(totals.membership)}${totals.membershipLabel}`;
+      } else {
+        $("#membershipDue").textContent = state.billing === "monthly" ? "$0/mo" : "$0/yr";
+      }
+
+      if(totals.patchRecurring > 0){
+        $("#patchDueRow").style.display = "flex";
+        $("#patchDue").textContent = `${money(totals.patchRecurring)}/mo`;
+      } else {
+        $("#patchDueRow").style.display = "none";
+      }
+
+      // Button states
+      $("#continueBtn").disabled = !state.plan;
+      $("#continueBtn").style.opacity = state.plan ? "1" : "0.6";
+
+      renderDeviceButtons();
+
+      // Bundle highlight
+      $("#addBundleBtn").style.opacity = state.bundleActive ? "0.85" : "1";
+    }
+
+    // --------- Events ----------
+    $("#toggleMonthly").addEventListener("click", () => setBilling("monthly"));
+    $("#toggleAnnual").addEventListener("click", () => setBilling("annual"));
+
+    $$("[data-action='choose-plan']").forEach(btn => {
+      btn.addEventListener("click", () => choosePlan(btn.getAttribute("data-plan")));
+    });
+
+    $$("[data-action='toggle-device']").forEach(btn => {
+      btn.addEventListener("click", () => toggleDevice(btn.getAttribute("data-device")));
+    });
+
+    $("#addBundleBtn").addEventListener("click", addBundle);
+
+    $("#bundleDetailsBtn").addEventListener("click", () => {
+      const list = PRICES.bundle.includes.map(k => PRICES.devices[k].name).join(", ");
+      alert(`Bundle includes: ${list}`);
+    });
+
+    $("#resetBtn").addEventListener("click", resetAll);
+
+    // Patch delivery
+    $("#patchDeliveryEnabled").addEventListener("change", (e) => {
+      const on = e.target.checked;
+
+      if(!state.devices.has("patch")){
+        e.target.checked = false;
+        showToast("Add Patch to enable delivery");
+        return;
+      }
+
+      state.patchDeliveryEnabled = on;
+
+      const sel = $("#patchDeliveryPlan");
+      sel.disabled = !on;
+
+      if(!on){
+        state.patchDeliveryQty = null;
+        sel.value = "none";
+      } else {
+        if(sel.value === "none") sel.value = "4";
+        state.patchDeliveryQty = sel.value;
+      }
+
+      render();
+      showToast(on ? "Patch delivery enabled" : "Patch delivery disabled");
+    });
+
+    $("#patchDeliveryPlan").addEventListener("change", (e) => {
+      const v = e.target.value;
+      if(v === "none"){
+        state.patchDeliveryEnabled = false;
+        state.patchDeliveryQty = null;
+        $("#patchDeliveryEnabled").checked = false;
+        showToast("Patch delivery cleared");
+      } else {
+        state.patchDeliveryEnabled = true;
+        state.patchDeliveryQty = v;
+        $("#patchDeliveryEnabled").checked = true;
+        showToast("Patch schedule updated");
+      }
+      render();
+    });
+
+    // Continue (prototype)
+    $("#continueBtn").addEventListener("click", () => {
+      if(!state.plan){
+        showToast("Choose a membership to continue");
+        return;
+      }
+
+      const totals = computeTotals();
+      const devices = Array.from(state.devices).map(k => PRICES.devices[k].name);
+      const patch = (state.patchDeliveryEnabled && state.patchDeliveryQty)
+        ? PRICES.patchDelivery.options[state.patchDeliveryQty].label
+        : "None";
+
+      alert(
+        `Checkout summary (prototype)\n\n` +
+        `Billing: ${state.billing}\n` +
+        `Membership: ${PRICES.plans[state.plan].name}\n` +
+        `Devices: ${devices.length ? devices.join(", ") : "None"}\n` +
+        `Patch delivery: ${patch}\n\n` +
+        `Due today (hardware): ${money(totals.hardware)}\n` +
+        `Membership: ${money(totals.membership)}${totals.membershipLabel}\n` +
+        (totals.patchRecurring ? `Patch delivery: ${money(totals.patchRecurring)}/mo\n` : ``)
+      );
+    });
+
+    // Init patch option labels from config (single source of truth)
+    (function hydratePatchOptions(){
+      const sel = $("#patchDeliveryPlan");
+      const opts = PRICES.patchDelivery.options;
+      Array.from(sel.options).forEach(o => {
+        const qty = o.value;
+        if(opts[qty]){
+          o.textContent = `${opts[qty].label} — ${money(opts[qty].monthly)}`;
+        }
+      });
+    })();
+
+    // Init billing + render
+    setBilling(state.billing);
+    render();
+  </script>
+</body>
+</html>
