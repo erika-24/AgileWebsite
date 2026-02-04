@@ -1,0 +1,486 @@
+<!-- faq.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardioGuard FAQ - Frequently Asked Questions</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .faq-hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .faq-hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .faq-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .faq-section {
+      padding: 60px 0;
+    }
+
+    .faq-category {
+      margin-bottom: 48px;
+    }
+
+    .faq-category h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      color: #fff;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    details {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 20px 24px;
+      transition: all 0.3s ease;
+    }
+
+    details:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    details[open] {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #fff;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details p {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
+    details p strong {
+      color: #fff;
+    }
+
+    .contact-cta {
+      text-align: center;
+      padding: 60px 0;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      margin-top: 48px;
+    }
+
+    .contact-cta h3 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .contact-cta p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 32px;
+    }
+
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .search-box input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .faq-hero h2 {
+        font-size: 2rem;
+      }
+
+      .faq-category h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="productsPage.html">Products</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="index.html#contact" class="btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="faq-hero">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <p>Find answers to common questions about CardioGuard devices, memberships, and monitoring services.</p>
+      
+      <div class="search-box">
+        <input type="text" id="faqSearch" placeholder="Search for answers..." />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Sections -->
+  <section class="faq-section">
+    <div class="container">
+
+      <!-- Getting Started -->
+      <div class="faq-category">
+        <h3>Getting Started</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>What is CardioGuard?</summary>
+            <p>CardioGuard is a comprehensive cardiac monitoring ecosystem that combines wearable devices with intelligent software to provide continuous heart health monitoring, tiered alerts, and caregiver notifications. Our system helps detect potential cardiac issues early and connects you with the care you need.</p>
+          </details>
+
+          <details>
+            <summary>How do I get started with CardioGuard?</summary>
+            <p><strong>Step 1:</strong> Choose a membership plan (Essential or Guardian).<br>
+            <strong>Step 2:</strong> Select your device(s) based on your monitoring needs.<br>
+            <strong>Step 3:</strong> Receive your hardware and download the CardioGuard app.<br>
+            <strong>Step 4:</strong> Complete the setup wizard and add your caregiver contacts.<br>
+            You'll be monitoring your heart health within minutes!</p>
+          </details>
+
+          <details>
+            <summary>Do I need a smartphone to use CardioGuard?</summary>
+            <p>Yes, you'll need a smartphone (iOS 14+ or Android 9+) to use the CardioGuard app. The app is essential for receiving alerts, viewing trends, and managing your caregiver contacts. However, our devices store data locally when disconnected and sync automatically when your phone is nearby.</p>
+          </details>
+
+          <details>
+            <summary>Is CardioGuard FDA-cleared?</summary>
+            <p>CardioGuard devices are designed as wellness and monitoring tools. While we use medical-grade sensors, our products are not intended to diagnose, treat, cure, or prevent any disease. Always consult with your healthcare provider about any health concerns. We're actively pursuing regulatory clearances for specific clinical applications.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Membership & Pricing -->
+      <div class="faq-category">
+        <h3>Membership & Pricing</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>Why is membership required?</summary>
+            <p>Membership powers the CardioGuard app, real-time alerting system, cloud storage for your health data, caregiver notification workflows, and continuous software updates. Without an active membership, the ecosystem features including alerts and caregiver communications are unavailable.</p>
+          </details>
+
+          <details>
+            <summary>What's the difference between Essential and Guardian?</summary>
+            <p><strong>Essential ($19/month):</strong> Includes continuous monitoring, tiered alerts, event logs, weekly summaries, and 1 caregiver contact.<br><br>
+            <strong>Guardian ($39/month):</strong> Everything in Essential plus no-response escalation (alerts escalate if you don't respond), up to 4 caregivers with customizable escalation tree, priority alerts, and enhanced detailed reports.</p>
+          </details>
+
+          <details>
+            <summary>Can I switch between membership plans?</summary>
+            <p>Yes! You can upgrade from Essential to Guardian at any time. The change takes effect immediately and you'll only pay the prorated difference for the current billing period. Downgrading from Guardian to Essential takes effect at your next renewal date to ensure continuity of your current features.</p>
+          </details>
+
+          <details>
+            <summary>Are there any long-term contracts?</summary>
+            <p>No contracts required! Both membership plans are month-to-month or annual subscriptions. You can cancel anytime, though annual plans save you money upfront. If you choose annual billing, you'll receive a refund for unused months if you cancel early (minus a $25 processing fee).</p>
+          </details>
+
+          <details>
+            <summary>Do you offer family or multi-user discounts?</summary>
+            <p>Yes! If you're purchasing for multiple family members, contact our sales team for volume pricing. We offer 15% off for 3+ users and 25% off for 5+ users on annual plans. Each user maintains their own independent account and membership.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Devices & Hardware -->
+      <div class="faq-category">
+        <h3>Devices & Hardware</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>Do I need more than one device?</summary>
+            <p>Not necessarily. Many users start with just the Ring or Band for daily wear. However, adding a Patch can reduce monitoring gaps during sleep or when charging your primary device. The Hub improves at-home reliability, and the Cuff/Clip provide additional health metrics. Start with one device and add others as your needs evolve.</p>
+          </details>
+
+          <details>
+            <summary>What's included in the Complete Care Bundle?</summary>
+            <p>The bundle includes: CardioGuard Ring, Band, Patch Starter Kit, Cuff, Clip, and Hub—everything needed for comprehensive 24/7 coverage. You save $200 compared to buying devices individually. Membership is still required and sold separately.</p>
+          </details>
+
+          <details>
+            <summary>How long do device batteries last?</summary>
+            <p><strong>Ring:</strong> 5-7 days<br>
+            <strong>Band:</strong> 3-4 days<br>
+            <strong>Patch:</strong> 7-10 days (disposable, battery-powered)<br>
+            <strong>Cuff/Clip:</strong> 6-12 months (replaceable batteries)<br>
+            <strong>Hub:</strong> Plugs into power outlet<br>
+            All devices show battery status in the app and alert you when charging is needed.</p>
+          </details>
+
+          <details>
+            <summary>Are CardioGuard devices waterproof?</summary>
+            <p><strong>Ring & Band:</strong> Water-resistant up to 50m (5 ATM)—safe for swimming, showering, and water sports.<br>
+            <strong>Patch:</strong> Water-resistant for showering only (not submersible).<br>
+            <strong>Cuff, Clip, Hub:</strong> Not water-resistant—keep dry.<br>
+            Always check device-specific guidelines in the user manual.</p>
+          </details>
+
+          <details>
+            <summary>What if a device breaks or malfunctions?</summary>
+            <p>All devices include a 1-year manufacturer warranty covering defects and malfunctions. If something goes wrong, contact support and we'll troubleshoot remotely. If needed, we'll send a replacement (shipping both ways is free within the US). Accidental damage isn't covered, but we offer discounted replacement pricing for active members.</p>
+          </details>
+
+          <details>
+            <summary>Can I return devices if they don't work for me?</summary>
+            <p>Yes! We offer a 30-day money-back guarantee on all hardware purchases. If you're not satisfied, return the devices in original condition for a full refund (minus shipping). Membership fees are prorated based on usage. No questions asked!</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Monitoring & Alerts -->
+      <div class="faq-category">
+        <h3>Monitoring & Alerts</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>What heart metrics does CardioGuard monitor?</summary>
+            <p>Depending on your devices, CardioGuard tracks: <strong>Heart Rate (HR)</strong>, Heart Rate Variability (HRV), Blood Oxygen (SpO₂), ECG/EKG waveforms, Respiratory Rate, Blood Pressure (with Cuff), and rhythm irregularities including potential AFib detection. All data syncs to your app for trend analysis.</p>
+          </details>
+
+          <details>
+            <summary>How does the tiered alert system work?</summary>
+            <p><strong>Low:</strong> Minor deviations—informational only, logged in app.<br>
+            <strong>Moderate:</strong> Noticeable change—app notification + logged event.<br>
+            <strong>High:</strong> Significant concern—urgent notification + guidance to check in or rest.<br>
+            <strong>Critical:</strong> Immediate attention needed—loud alert, guidance to seek care, caregiver notification sent.<br>
+            You can customize thresholds with your healthcare provider's input.</p>
+          </details>
+
+          <details>
+            <summary>How does no-response escalation work?</summary>
+            <p>Available on Guardian plans: When a High or Critical alert is triggered, CardioGuard attempts to reach you first via app notification, call, or SMS. If you don't respond within a defined time window (default: 5 minutes for Critical, 15 minutes for High), the system automatically escalates through your caregiver list in order until someone responds or emergency services are contacted (future feature).</p>
+          </details>
+
+          <details>
+            <summary>Will I get false alarms?</summary>
+            <p>Our algorithms are designed to minimize false positives by analyzing multiple signals and contextual data. However, factors like exercise, stress, or device placement can occasionally trigger alerts. You can mark alerts as false positives in the app to help our system learn and improve accuracy over time.</p>
+          </details>
+
+          <details>
+            <summary>Can I share my data with my doctor?</summary>
+            <p>Absolutely! You can generate comprehensive health reports (daily, weekly, or custom date ranges) and share them directly with your healthcare team via PDF export or secure email. Some providers can also access your data directly through our Healthcare Provider Portal (institutional accounts required).</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Patch Delivery & Accessories -->
+      <div class="faq-category">
+        <h3>Patch Delivery & Accessories</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>How does patch auto-delivery work?</summary>
+            <p>Choose a monthly schedule (4, 8, or 12 patches per month) based on your usage. Patches ship automatically at the beginning of each month and bill separately from your membership. You can change your schedule, skip a month, or pause delivery anytime from your account settings—no penalties.</p>
+          </details>
+
+          <details>
+            <summary>How long does each patch last?</summary>
+            <p>Each CardioGuard Patch is designed for 7-10 days of continuous wear, depending on skin type, activity level, and environmental conditions. The adhesive is medical-grade and water-resistant for showering. When battery or adhesive strength decreases, the app will prompt you to replace the patch.</p>
+          </details>
+
+          <details>
+            <summary>What if I have sensitive skin?</summary>
+            <p>Our patches use hypoallergenic, latex-free adhesive suitable for most skin types. If you experience irritation, try rotating placement sites or using a skin barrier wipe (included in Patch Starter Kit). For severe reactions, discontinue use and contact support—we can recommend alternative monitoring solutions.</p>
+          </details>
+
+          <details>
+            <summary>Can I buy patches without a subscription?</summary>
+            <p>Yes! You can purchase patch packs individually from our online store without committing to auto-delivery. However, subscription pricing saves you 15-20% compared to one-time purchases. The Starter Kit includes your first 4 patches to get you started.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Technical & Privacy -->
+      <div class="faq-category">
+        <h3>Technical & Privacy</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>How is my health data protected?</summary>
+            <p>CardioGuard uses bank-level encryption (AES-256) for data at rest and TLS 1.3 for data in transit. We're HIPAA-compliant and never sell your health information to third parties. You maintain full ownership of your data and can export or delete it anytime. Read our full Privacy Policy for details.</p>
+          </details>
+
+          <details>
+            <summary>What happens to my data if I cancel?</summary>
+            <p>Your data remains accessible in read-only mode for 90 days after cancellation. During this time, you can export all historical data as CSV or PDF. After 90 days, data is permanently deleted from our servers unless you reactivate your membership. Local device data is retained on your hardware.</p>
+          </details>
+
+          <details>
+            <summary>Does CardioGuard work internationally?</summary>
+            <p>Yes! Our devices work worldwide, though cellular connectivity may vary by region. The app requires internet access (WiFi or mobile data) for real-time alerts and syncing. When traveling, devices store up to 7 days of data locally and sync when reconnected. International shipping and support availability vary by country.</p>
+          </details>
+
+          <details>
+            <summary>What's your data retention policy?</summary>
+            <p>Active members: Unlimited data retention while membership is active.<br>
+            Canceled members: 90-day grace period, then permanent deletion.<br>
+            You can download complete data archives anytime. Anonymized, aggregated data may be retained for research purposes only (opt-out available).</p>
+          </details>
+
+          <details>
+            <summary>Can multiple people monitor one account?</summary>
+            <p>No—each CardioGuard account is designed for a single individual's health monitoring. However, caregivers can receive alerts and view shared data through the Caregiver Portal without needing their own membership. For families, each person needs their own account and devices.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Support & Troubleshooting -->
+      <div class="faq-category">
+        <h3>Support & Troubleshooting</h3>
+        <div class="faq-grid">
+          <details>
+            <summary>What if my device won't sync?</summary>
+            <p><strong>Quick fixes:</strong><br>
+            1. Ensure Bluetooth is enabled on your phone<br>
+            2. Restart both device and phone<br>
+            3. Check for app updates in App/Play Store<br>
+            4. Move closer to your phone (within 30 feet)<br>
+            5. Remove and re-pair device in app settings<br>
+            Still not working? Contact support—we're available 24/7 for Guardian members.</p>
+          </details>
+
+          <details>
+            <summary>How do I contact customer support?</summary>
+            <p><strong>Essential members:</strong> Email support@cardioguard.com (response within 24 hours) or use in-app chat (9 AM - 9 PM EST).<br>
+            <strong>Guardian members:</strong> Priority support via phone, email, or chat 24/7/365.<br>
+            All members can access our Help Center with video tutorials and troubleshooting guides.</p>
+          </details>
+
+          <details>
+            <summary>Do you offer training or setup assistance?</summary>
+            <p>Yes! All new members receive access to our Setup Success Program including: guided setup wizard in the app, video tutorials for each device, optional live onboarding call (30 minutes), and first-month check-ins to optimize your experience. Guardian members also get personalized device recommendations.</p>
+          </details>
+
+          <details>
+            <summary>Can I upgrade my devices later?</summary>
+            <p>Absolutely! You can add new devices to your account anytime. Active members receive 10% off additional hardware purchases, and we offer trade-in credits for older devices (conditions apply). Your membership stays the same regardless of how many devices you own.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <h3>Still have questions?</h3>
+      <p>Our team is here to help you find the perfect CardioGuard solution.</p>
+      <a href="index.html#contact" class="btn-primary" style="margin-right: 12px;">Contact Us</a>
+      <a href="pricing.html" class="btn-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 CardioGuard. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Simple FAQ search functionality
+    const searchInput = document.getElementById('faqSearch');
+    const allDetails = document.querySelectorAll('details');
+
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+
+      allDetails.forEach(detail => {
+        const summary = detail.querySelector('summary').textContent.toLowerCase();
+        const content = detail.querySelector('p').textContent.toLowerCase();
+        
+        if (searchTerm === '') {
+          detail.style.display = 'block';
+          detail.removeAttribute('open');
+        } else if (summary.includes(searchTerm) || content.includes(searchTerm)) {
+          detail.style.display = 'block';
+          detail.setAttribute('open', '');
+        } else {
+          detail.style.display = 'none';
+        }
+      });
+
+      // Show/hide categories based on visible questions
+      document.querySelectorAll('.faq-category').forEach(category => {
+        const visibleDetails = category.querySelectorAll('details[style*="display: block"], details:not([style*="display: none"])');
+        category.style.display = visibleDetails.length > 0 ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
