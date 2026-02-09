@@ -164,6 +164,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
+    <img src="images/Logo - Cardio Guard.png" alt="CardioGuard Logo" class="footer-logo" />
     <p>© 2026 CompanyName. All rights reserved.</p>
   </footer>
 
