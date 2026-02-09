@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers - CardioGuard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="productsPage.html">Products</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="hr.html">Careers</a></li>
+          <li><a href="index.html#contact" class="btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h2>Join Our Team</h2>
+        <p>Help us build the future of cardiac monitoring and save lives through innovative technology.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-content">
+    <div class="container">
+      <div class="careers-intro">
+        <h3>Why Work at CardioGuard?</h3>
+        <p>At CardioGuard, we're on a mission to provide life-saving cardiac monitoring solutions to those who need them most. We're looking for passionate individuals who want to make a real difference in people's lives.</p>
+      </div>
+
+      <div class="careers-cta">
+        <h3>Current Opportunities</h3>
+        <p>We're always looking for talented individuals to join our team. Check out our open positions and apply through LinkedIn.</p>
+        <a href="https://www.linkedin.com/company/cardioguard" target="_blank" class="btn-primary linkedin-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px;">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          View Opportunities on LinkedIn
+        </a>
+      </div>
+
+      <div class="careers-benefits">
+        <h3>What We Offer</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>🏥 Health & Wellness</h4>
+            <p>Comprehensive health insurance and wellness programs</p>
+          </div>
+          <div class="feature-card">
+            <h4>💼 Professional Growth</h4>
+            <p>Continuous learning opportunities and career development</p>
+          </div>
+          <div class="feature-card">
+            <h4>🌍 Work-Life Balance</h4>
+            <p>Flexible work arrangements and generous PTO</p>
+          </div>
+          <div class="feature-card">
+            <h4>🚀 Innovation Culture</h4>
+            <p>Work on cutting-edge healthcare technology</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="careers-contact">
+        <h3>Questions?</h3>
+        <p>For HR inquiries, please contact us at <a href="mailto:hr@cardioguard.com">hr@cardioguard.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <img src="images/Logo - Cardio Guard.png" alt="CardioGuard Logo" class="footer-logo" />
+    <p>© 2026 CardioGuard. All rights reserved.</p>
+  </footer>
+
+  <style>
+    .careers-content {
+      padding: 60px 0;
+    }
+
+    .careers-intro,
+    .careers-cta,
+    .careers-benefits,
+    .careers-contact {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .careers-intro h3,
+    .careers-cta h3,
+    .careers-benefits h3,
+    .careers-contact h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .careers-intro p,
+    .careers-cta p,
+    .careers-contact p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .linkedin-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0077b5;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    .linkedin-btn:hover {
+      background: #005885;
+    }
+
+    .careers-benefits .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .careers-benefits .feature-card {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .careers-benefits .feature-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .careers-contact a {
+      color: #0077b5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .careers-contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</body>
+</html>
