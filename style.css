@@ -292,56 +292,6 @@ a {
   font-size: 0.95rem;
 }
 
-/* About Section */
-.about {
-  background: transparent; /* 透明，显示body的网格 */
-  padding: 6rem 0;
-  text-align: center;
-  border-top: 1px solid var(--glass-border);
-  border-bottom: 1px solid var(--glass-border);
-}
-
-.about .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  text-align: left;
-}
-
-.about-text h3 {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.about-text p {
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-}
-
-.about-image {
-  border-radius: 12px;
-  /* 倒影效果 */
-  -webkit-box-reflect: below 0px linear-gradient(transparent 70%, rgba(0,0,0,0.3));
-}
-
-.about-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
-  filter: grayscale(80%) contrast(1.2); /* 降低饱和度，更显冷酷 */
-  transition: filter 0.5s ease;
-}
-
-.about-image:hover img {
-  filter: grayscale(0%) contrast(1.1); /* hover时恢复色彩 */
-}
-
 /* Contact Section */
 .contact {
   padding: 5rem 0;
@@ -909,4 +859,129 @@ details p { margin: 10px 0 0; color: rgba(255,255,255,0.75); line-height: 1.55; 
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(-6px);
+}
+
+/* =========================
+   About panel layout (mission + image on top, culture below)
+   ========================= */
+
+h3 {
+  font-size: 2rem;
+}
+/* A single glass panel wrapping the whole section */
+.about-panel {
+  background: rgba(20, 20, 20, 0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 2.5rem 2.25rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 50px rgba(0,0,0,0.35);
+}
+
+/* Top row split */
+.about-top {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Remove the old per-column panel look now that about-panel exists */
+.about-text {
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Mission subtitle */
+.mission-subhead {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+
+  background: linear-gradient(to bottom, #fff 0%, #999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 16px rgba(255,255,255,0.08);
+}
+
+.about-text h3 {
+  margin: 0 0 1.1rem 0;
+}
+
+.about-text p {
+  margin: 0 0 1.1rem 0;
+  line-height: 1.75;
+}
+
+/* Mission image styling */
+.mission-image {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  box-shadow: 0 16px 60px rgba(0,0,0,0.55);
+}
+
+.mission-image img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(35%) contrast(1.1);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.mission-image:hover img {
+  filter: grayscale(0%) contrast(1.05);
+  transform: scale(1.02);
+}
+
+/* Divider between top and bottom halves */
+.about-bottom {
+  margin-top: 2.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+/* Culture heading spacing */
+.culture h3 {
+  margin: 0 0 1.1rem 0;
+}
+
+/* Culture grid unchanged but kept here for completeness */
+.culture-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.culture .btn-secondary {
+  margin-top: 16px;
+  display: inline-block;
+}
+
+/* Responsive: stack image under mission text, culture becomes 1-col */
+@media (max-width: 900px) {
+  .about-panel {
+    padding: 2.0rem 1.4rem;
+  }
+  .about-top {
+    grid-template-columns: 1fr;
+  }
+  .mission-image img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .culture-grid {
+    grid-template-columns: 1fr;
+  }
 }
