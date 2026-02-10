@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leadership - CardioGuard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .leadership-hero { padding: 80px 0 40px; text-align: center; background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #050505 100%); }
+        .leadership-hero h2 { font-size: 3rem; background: linear-gradient(to bottom, #fff 0%, #999 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+        .leadership-hero p { color: rgba(255, 255, 255, 0.7); font-size: 1.1rem; }
+        .team-section { padding: 60px 0; }
+        .team-category { margin-bottom: 80px; }
+        .team-category h3 { font-size: 1.8rem; color: #fff; margin-bottom: 30px; padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); text-align: left; }
+
+        /* The Grid Logic: 3 per line */
+        .person-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .ceo-grid { display: flex; justify-content: center; margin-bottom: 40px; }
+
+        .person-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 24px; text-align: left; transition: all 0.4s ease; }
+        .person-card:hover { transform: translateY(-10px); border-color: rgba(102, 126, 234, 0.5); }
+        .person-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; filter: grayscale(30%); }
+        .person-info strong { display: block; font-size: 1.25rem; color: #fff; margin-bottom: 5px; }
+        .person-info span { display: block; color: #667eea; font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; }
+        .person-info a { color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; text-decoration: none; }
+
+        @media (max-width: 992px) { .person-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .person-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="productsPage.html">Products</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="recruit.html">Careers</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="index.html#contact" class="btn">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="leadership-hero">
+        <div class="container">
+            <h2>Our Leadership</h2>
+            <p>The professionals behind the CardioGuard ecosystem.</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="team-category">
+                <h3>Executive</h3>
+                <div class="ceo-grid">
+                    <div class="person-card" style="max-width: 350px;">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop" alt="CEO">
+                        <div class="person-info"><strong>Marcus Thorne</strong><span>Chief Executive Officer</span><a href="mailto:m.thorne@cardioguard.com">m.thorne@cardioguard.com</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h3>Product Team</h3>
+                <div class="person-grid">
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop" alt="P1"><div class="person-info"><strong>Elena Vance</strong><span>Head of Product</span><a href="mailto:e.vance@cardioguard.com">e.vance@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=500&fit=crop" alt="P2"><div class="person-info"><strong>David Chen</strong><span>UI/UX Designer</span><a href="mailto:d.chen@cardioguard.com">d.chen@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop" alt="P3"><div class="person-info"><strong>Sarah Jenkins</strong><span>Product Manager</span><a href="mailto:s.jenkins@cardioguard.com">s.jenkins@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop" alt="P4"><div class="person-info"><strong>Robert Fox</strong><span>Industrial Designer</span><a href="mailto:r.fox@cardioguard.com">r.fox@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=500&fit=crop" alt="P5"><div class="person-info"><strong>Maya Patil</strong><span>Product Analyst</span><a href="mailto:m.patil@cardioguard.com">m.patil@cardioguard.com</a></div></div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h3>HR Team</h3>
+                <div class="person-grid">
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop" alt="H1"><div class="person-info"><strong>Linda Wu</strong><span>HR Director</span><a href="mailto:l.wu@cardioguard.com">l.wu@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="H2"><div class="person-info"><strong>James Miller</strong><span>Lead Recruiter</span><a href="mailto:j.miller@cardioguard.com">j.miller@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1598550874175-4d0fe4a2c943?w=400&h=500&fit=crop" alt="H3"><div class="person-info"><strong>Kelly Grant</strong><span>HR Specialist</span><a href="mailto:k.grant@cardioguard.com">k.grant@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop" alt="H4"><div class="person-info"><strong>Tom Harris</strong><span>Benefits Manager</span><a href="mailto:t.harris@cardioguard.com">t.harris@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=500&fit=crop" alt="H5"><div class="person-info"><strong>Nina Rossi</strong><span>Staff Operations</span><a href="mailto:n.rossi@cardioguard.com">n.rossi@cardioguard.com</a></div></div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h3>Technique Team</h3>
+                <div class="person-grid">
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop" alt="T1"><div class="person-info"><strong>Alan Turing</strong><span>Chief Technology Officer</span><a href="mailto:a.turing@cardioguard.com">a.turing@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?w=400&h=500&fit=crop" alt="T2"><div class="person-info"><strong>Isaac Newton</strong><span>Lead Software Engineer</span><a href="mailto:i.newton@cardioguard.com">i.newton@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1628157588553-5eeea00af15c?w=400&h=500&fit=crop" alt="T3"><div class="person-info"><strong>Marie Curie</strong><span>Head of Research</span><a href="mailto:m.curie@cardioguard.com">m.curie@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&h=500&fit=crop" alt="T4"><div class="person-info"><strong>Nikola Tesla</strong><span>Hardware Architect</span><a href="mailto:n.tesla@cardioguard.com">n.tesla@cardioguard.com</a></div></div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h3>Marketing Team</h3>
+                <div class="person-grid">
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1586297135637-d1f9b0ba5055?w=400&h=500&fit=crop" alt="M1"><div class="person-info"><strong>Sophie Loren</strong><span>VP Marketing</span><a href="mailto:s.loren@cardioguard.com">s.loren@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=500&fit=crop" alt="M2"><div class="person-info"><strong>Leo Messi</strong><span>Growth Manager</span><a href="mailto:l.messi@cardioguard.com">l.messi@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1548142813-c348350df52b?w=400&h=500&fit=crop" alt="M3"><div class="person-info"><strong>Diana Prince</strong><span>Social Media Lead</span><a href="mailto:d.prince@cardioguard.com">d.prince@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=400&h=500&fit=crop" alt="M4"><div class="person-info"><strong>Bruce Wayne</strong><span>PR Coordinator</span><a href="mailto:b.wayne@cardioguard.com">b.wayne@cardioguard.com</a></div></div>
+                    <div class="person-card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop" alt="M5"><div class="person-info"><strong>Ada Lovelace</strong><span>Creative Director</span><a href="mailto:a.lovelace@cardioguard.com">a.lovelace@cardioguard.com</a></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <img src="images/Logo - Cardio Guard.png" alt="CardioGuard Logo" class="footer-logo" />
+        <p>© 2026 CardioGuard. All rights reserved[cite: 597].</p>
+    </footer>
+</body>
+</html>

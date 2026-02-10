@@ -8,6 +8,75 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    /* 聊天机器人容器定位 */
+    .chat-widget {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+    }
+
+    /* Floating Toggle Button */
+.chat-toggle {
+    width: 60px; 
+    height: 60px;
+    border-radius: 50%;
+    /* Matching your metal-gradient from style.css */
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main Chat Window */
+.chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 320px;
+    height: 450px;
+    /* Matching your bg-panel from style.css */
+    background: rgba(15, 15, 15, 0.95); 
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+}
+
+/* Show window when active class is added via JS */
+.chat-window.active {
+    display: flex;
+}
+
+    .chat-header {
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .chat-body {
+        flex: 1; padding: 15px; overflow-y: auto;
+        display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .message { padding: 8px 12px; border-radius: 12px; max-width: 85%; font-size: 14px; line-height: 1.4; }
+    .message.bot { background: rgba(255, 255, 255, 0.1); align-self: flex-start; }
+    .message.user { background: #667eea; align-self: flex-end; color: white; }
+
+    .chat-footer { padding: 10px; display: flex; gap: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .chat-footer input { flex: 1; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: 8px; border-radius: 4px; color: white; outline: none; }
+    #sendBtn { background: #fff; color: #000; border: none; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    /* 聊天机器人容器定位 */
+
+
     .faq-hero { 
       padding: 80px 0 60px;
       text-align: center;
@@ -164,6 +233,26 @@
   </style>
 </head>
 
+<div class="chat-widget" id="chatWidget">
+    <button class="chat-toggle" id="chatToggle">
+        <span class="chat-icon">💬</span>
+    </button>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <strong>CardioGuard AI Assistant</strong>
+            <button id="closeChat" style="background:none; border:none; color:white; cursor:pointer; font-size:20px;">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">Hello! I am CardioGuard AI Assistant. You can ask me about questions related to our products, services, and features.</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Enter your question...">
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+</div>
+
 <body>
 
   <!-- Navbar -->
@@ -180,6 +269,7 @@
           <li><a href="research.html">Research</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="recruit.html">Careers</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
           <li><a href="index.html#contact" class="btn">Contact</a></li>
         </ul>
       </nav>
@@ -454,29 +544,87 @@
     <p>© 2026 CardioGuard. All rights reserved.</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Simple FAQ search functionality
-    const searchInput = document.getElementById('faqSearch');
-    const allDetails = document.querySelectorAll('details');
+  <script>
+// --- 1. Fix Original Search Logic ---
+const searchInput = document.getElementById('faqSearch');
+const allDetails = document.querySelectorAll('details');
 
-    searchInput.addEventListener('input', (e) => {
-      const searchTerm = e.target.value.toLowerCase().trim();
-
-      allDetails.forEach(detail => {
+searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase().trim();
+    allDetails.forEach(detail => {
         const summary = detail.querySelector('summary').textContent.toLowerCase();
         const content = detail.querySelector('p').textContent.toLowerCase();
-        
         if (searchTerm === '') {
-          detail.style.display = 'block';
-          detail.removeAttribute('open');
+            detail.style.display = 'block';
+            detail.removeAttribute('open');
         } else if (summary.includes(searchTerm) || content.includes(searchTerm)) {
-          detail.style.display = 'block';
-          detail.setAttribute('open', '');
+            detail.style.display = 'block';
+            detail.setAttribute('open', '');
         } else {
-          detail.style.display = 'none';
+            detail.style.display = 'none';
         }
-      });
+    });
 
-      // Show/hide categories based on visible questions
-      document.querySelectorAll('.faq-category').forEach(category => {
-        const visibleDet
+    // Re-implemented the interrupted code from source 458
+    document.querySelectorAll('.faq-category').forEach(category => {
+        const visibleDet = Array.from(category.querySelectorAll('details'))
+                                .filter(d => d.style.display !== 'none');
+        category.style.display = visibleDet.length > 0 ? 'block' : 'none';
+    });
+});
+
+// --- 2. Chat Robot Logic ---
+const chatToggle = document.getElementById('chatToggle');
+const chatWindow = document.getElementById('chatWindow');
+const closeChat = document.getElementById('closeChat');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
+const chatBody = document.getElementById('chatBody');
+
+// Open/Close toggle
+chatToggle.onclick = () => chatWindow.classList.toggle('active');
+closeChat.onclick = () => chatWindow.classList.remove('active');
+
+function addMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${sender}`;
+    msgDiv.innerText = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function handleBotResponse(userText) {
+    const lowerText = userText.toLowerCase();
+    let reply = "I'm sorry, I don't understand that. Could you try asking about 'pricing' or 'devices'?";
+
+    // A. Detect "Price" or "Pricing" - pull data from your pricing configuration
+    if (lowerText.includes('price') || lowerText.includes('pricing')) {
+        reply = "Membership Plans: Essential is $19/mo and Guardian is $39/mo. " + 
+                "Hardware: Ring is $249, Band is $199, and the Patch Starter Kit is $149.";
+    } 
+    // B. Catch FAQ keywords automatically from your HTML
+    else {
+        allDetails.forEach(detail => {
+            const question = detail.querySelector('summary').innerText.toLowerCase();
+            // If the user's message matches part of the FAQ question
+            if (lowerText.length > 3 && (question.includes(lowerText) || lowerText.includes(question.split(' ')[0]))) {
+                reply = detail.querySelector('p').innerText;
+            }
+        });
+    }
+
+    // Small delay to simulate "typing"
+    setTimeout(() => addMessage(reply, 'bot'), 600);
+}
+
+sendBtn.onclick = () => {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    addMessage(text, 'user');
+    chatInput.value = '';
+    handleBotResponse(text);
+};
+
+// Support Enter Key
+chatInput.onkeypress = (e) => { if (e.key === 'Enter') sendBtn.click(); };
+</script>
