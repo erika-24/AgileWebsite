@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - CardioGuard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="checkout-page">
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index.html">CardioGuard</a></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="productsPage.html">Products</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="recruit.html">Careers</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="index.html#contact" class="btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="checkout-hero">
+    <div class="container">
+      <h2>Checkout</h2>
+      <p>Review your kit, confirm membership, and complete your order.</p>
+    </div>
+  </section>
+
+  <main class="checkout-main">
+    <div class="container">
+      <div class="checkout-layout">
+        <section class="checkout-panel" aria-label="Checkout form">
+          <div class="checkout-steps" aria-label="Checkout steps">
+            <div class="step active" data-step="1"><span>1</span> Details</div>
+            <div class="step" data-step="2"><span>2</span> Payment</div>
+            <div class="step" data-step="3"><span>3</span> Confirm</div>
+          </div>
+
+          <form id="checkoutForm" novalidate>
+            <!-- Step 1 -->
+            <div class="checkout-step" data-step-panel="1">
+              <h3>Contact & Shipping</h3>
+              <div class="field-grid">
+                <label class="field">
+                  <span>Full name</span>
+                  <input name="fullName" autocomplete="name" required placeholder="Jane Doe" />
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input name="email" type="email" autocomplete="email" required placeholder="jane@example.com" />
+                </label>
+                <label class="field field-wide">
+                  <span>Address</span>
+                  <input name="address1" autocomplete="address-line1" required placeholder="123 Main St" />
+                </label>
+                <label class="field field-wide">
+                  <span>Apartment, suite, etc. (optional)</span>
+                  <input name="address2" autocomplete="address-line2" placeholder="Apt 4B" />
+                </label>
+                <label class="field">
+                  <span>City</span>
+                  <input name="city" autocomplete="address-level2" required placeholder="Pittsburgh" />
+                </label>
+                <label class="field">
+                  <span>State</span>
+                  <input name="state" autocomplete="address-level1" required placeholder="PA" />
+                </label>
+                <label class="field">
+                  <span>ZIP</span>
+                  <input name="zip" autocomplete="postal-code" required placeholder="15213" />
+                </label>
+                <label class="field">
+                  <span>Country</span>
+                  <input name="country" autocomplete="country-name" required placeholder="United States" />
+                </label>
+              </div>
+
+              <div class="actions">
+                <a class="btn-secondary" href="pricing.html">Back to pricing</a>
+                <button class="btn-primary" type="button" id="nextToPayment">Continue to payment</button>
+              </div>
+              <p class="fineprint">Prototype checkout. No real payment is processed.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="checkout-step" data-step-panel="2" hidden>
+              <h3>Payment (Prototype)</h3>
+              <div class="field-grid">
+                <label class="field field-wide">
+                  <span>Card number</span>
+                  <input name="cardNumber" inputmode="numeric" autocomplete="cc-number" required placeholder="4242 4242 4242 4242" />
+                </label>
+                <label class="field">
+                  <span>Expiry</span>
+                  <input name="cardExpiry" autocomplete="cc-exp" required placeholder="MM/YY" />
+                </label>
+                <label class="field">
+                  <span>CVC</span>
+                  <input name="cardCvc" inputmode="numeric" autocomplete="cc-csc" required placeholder="123" />
+                </label>
+                <label class="field field-wide">
+                  <span>Name on card</span>
+                  <input name="cardName" autocomplete="cc-name" required placeholder="Jane Doe" />
+                </label>
+              </div>
+
+              <div class="actions">
+                <button class="btn-secondary" type="button" id="backToDetails">Back</button>
+                <button class="btn-primary" type="button" id="nextToConfirm">Review order</button>
+              </div>
+              <p class="fineprint">For demo purposes, use any values. Recommended test number: 4242 4242 4242 4242.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="checkout-step" data-step-panel="3" hidden>
+              <h3>Confirm</h3>
+              <div class="confirm-box" id="confirmBox" aria-live="polite"></div>
+              <div class="actions">
+                <button class="btn-secondary" type="button" id="backToPayment">Back</button>
+                <button class="btn-primary" type="submit" id="placeOrderBtn">Place order</button>
+              </div>
+              <p class="fineprint">By placing your order, you agree to our (prototype) terms and acknowledge membership is required for monitoring features.</p>
+            </div>
+          </form>
+        </section>
+
+        <aside class="checkout-summary" aria-label="Order summary">
+          <div class="pricing-card summary" style="position: static;">
+            <h4 style="margin-top:0;">Order Summary</h4>
+
+            <div class="summary-line">
+              <span>Billing</span>
+              <strong id="sumBilling">—</strong>
+            </div>
+            <div class="summary-line">
+              <span>Membership</span>
+              <strong id="sumPlan">—</strong>
+            </div>
+            <div class="summary-line">
+              <span>Devices</span>
+              <strong id="sumDevicesCount">—</strong>
+            </div>
+            <div class="summary-line">
+              <span>Patch delivery</span>
+              <strong id="sumPatch">—</strong>
+            </div>
+
+            <div class="summary-total">
+              <div class="summary-line">
+                <span>Due today (hardware)</span>
+                <strong id="sumHardware">$0</strong>
+              </div>
+              <div class="summary-line">
+                <span>Membership</span>
+                <strong id="sumMembership">$0/mo</strong>
+              </div>
+              <div class="summary-line" id="sumPatchRow" style="display:none;">
+                <span>Patch delivery</span>
+                <strong id="sumPatchDue">$0/mo</strong>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <a class="btn-secondary" href="productsPage.html">Add more devices</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <img src="images/Logo - Cardio Guard.png" alt="CardioGuard Logo" class="footer-logo" />
+    <p>© 2026 CardioGuard. All rights reserved.</p>
+  </footer>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script>
+    // Checkout reads selection saved by pricing.html (localStorage).
+    const STORAGE_KEY = "cg_checkout_state_v1";
+    const PRICES = {
+      plans: {
+        essential: { name: "Essential", monthly: 19, annual: 190 },
+        guardian:  { name: "Guardian",  monthly: 39, annual: 390 }
+      },
+      devices: {
+        ring:  { name: "CardioGuard Ring",  price: 249 },
+        band:  { name: "CardioGuard Band",  price: 199 },
+        patch: { name: "CardioGuard Patch (Starter)", price: 149 },
+        cuff:  { name: "CardioGuard Cuff",  price: 129 },
+        clip:  { name: "CardioGuard Clip",  price: 79  },
+        hub:   { name: "CardioGuard Hub",   price: 179 }
+      },
+      bundle: {
+        name: "Complete Care Bundle",
+        includes: ["ring","band","patch","cuff","clip","hub"],
+        price: 899
+      },
+      patchDelivery: {
+        options: {
+          4:  { label: "4 patches / month",  monthly: 24 },
+          8:  { label: "8 patches / month",  monthly: 44 },
+          12: { label: "12 patches / month", monthly: 60 }
+        }
+      }
+    };
+
+    const $ = (sel, root=document) => root.querySelector(sel);
+    function money(n){
+      return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+    }
+    function showToast(msg){
+      const t = $("#toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => t.classList.remove("show"), 1600);
+    }
+
+    function loadSelection(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function computeTotals(sel){
+      const billing = sel?.billing === "annual" ? "annual" : "monthly";
+      const planKey = sel?.plan || null;
+      const bundleActive = !!sel?.bundleActive;
+      const deviceKeys = Array.isArray(sel?.devices) ? sel.devices : [];
+
+      let hardware = 0;
+      if(bundleActive){
+        hardware = PRICES.bundle.price;
+      } else {
+        for(const k of deviceKeys){
+          if(PRICES.devices[k]) hardware += PRICES.devices[k].price;
+        }
+      }
+
+      let membership = 0;
+      if(planKey && PRICES.plans[planKey]) membership = PRICES.plans[planKey][billing];
+
+      let patchRecurring = 0;
+      let patchLabel = "None";
+      if(sel?.patchDeliveryEnabled && sel?.patchDeliveryQty && PRICES.patchDelivery.options[sel.patchDeliveryQty]){
+        patchRecurring = PRICES.patchDelivery.options[sel.patchDeliveryQty].monthly;
+        patchLabel = PRICES.patchDelivery.options[sel.patchDeliveryQty].label;
+      }
+
+      return {
+        billing,
+        planKey,
+        planName: planKey ? PRICES.plans[planKey]?.name : null,
+        deviceKeys: bundleActive ? PRICES.bundle.includes.slice() : deviceKeys,
+        hardware,
+        membership,
+        membershipLabel: billing === "monthly" ? "/mo" : "/yr",
+        patchRecurring,
+        patchLabel
+      };
+    }
+
+    function renderSummary(sel){
+      const t = computeTotals(sel);
+      $("#sumBilling").textContent = t.billing === "monthly" ? "Monthly" : "Annual";
+      $("#sumPlan").textContent = t.planName || "Not selected";
+      $("#sumDevicesCount").textContent = String(t.deviceKeys.length);
+      $("#sumPatch").textContent = t.patchLabel || "None";
+
+      $("#sumHardware").textContent = money(t.hardware);
+      $("#sumMembership").textContent = t.planKey ? `${money(t.membership)}${t.membershipLabel}` : (t.billing === "monthly" ? "$0/mo" : "$0/yr");
+
+      if(t.patchRecurring > 0){
+        $("#sumPatchRow").style.display = "flex";
+        $("#sumPatchDue").textContent = `${money(t.patchRecurring)}/mo`;
+      } else {
+        $("#sumPatchRow").style.display = "none";
+      }
+    }
+
+    function setStep(step){
+      const steps = Array.from(document.querySelectorAll(".checkout-steps .step"));
+      steps.forEach(s => {
+        const n = Number(s.getAttribute("data-step"));
+        s.classList.toggle("active", n === step);
+        s.classList.toggle("done", n < step);
+      });
+      Array.from(document.querySelectorAll(".checkout-step")).forEach(p => {
+        const n = Number(p.getAttribute("data-step-panel"));
+        p.hidden = n !== step;
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function validateStep(form, fields){
+      let ok = true;
+      for(const name of fields){
+        const el = form.elements[name];
+        if(!el) continue;
+        if(!el.checkValidity()){
+          ok = false;
+          el.classList.add("invalid");
+        } else {
+          el.classList.remove("invalid");
+        }
+      }
+      if(!ok) showToast("Please complete the required fields.");
+      return ok;
+    }
+
+    function buildConfirmText(sel, form){
+      const t = computeTotals(sel);
+      const devices = t.deviceKeys.map(k => PRICES.devices[k]?.name).filter(Boolean);
+      const lines = [];
+      lines.push(`<div class="confirm-line"><span>Billing</span><strong>${t.billing === "monthly" ? "Monthly" : "Annual"}</strong></div>`);
+      lines.push(`<div class="confirm-line"><span>Membership</span><strong>${t.planName || "Not selected"}</strong></div>`);
+      lines.push(`<div class="confirm-line"><span>Devices</span><strong>${devices.length ? devices.join(", ") : "None"}</strong></div>`);
+      lines.push(`<div class="confirm-line"><span>Patch delivery</span><strong>${t.patchLabel}</strong></div>`);
+      lines.push(`<hr class="confirm-divider" />`);
+      lines.push(`<div class="confirm-line"><span>Due today (hardware)</span><strong>${money(t.hardware)}</strong></div>`);
+      lines.push(`<div class="confirm-line"><span>Membership</span><strong>${t.planKey ? `${money(t.membership)}${t.membershipLabel}` : (t.billing === "monthly" ? "$0/mo" : "$0/yr")}</strong></div>`);
+      if(t.patchRecurring){
+        lines.push(`<div class="confirm-line"><span>Patch delivery</span><strong>${money(t.patchRecurring)}/mo</strong></div>`);
+      }
+
+      const ship = [
+        form.elements.fullName?.value,
+        form.elements.address1?.value,
+        form.elements.address2?.value,
+        `${form.elements.city?.value}, ${form.elements.state?.value} ${form.elements.zip?.value}`,
+        form.elements.country?.value
+      ].filter(Boolean).join("<br/>");
+      lines.push(`<hr class="confirm-divider" />`);
+      lines.push(`<div class="confirm-ship"><strong>Ship to</strong><div>${ship}</div></div>`);
+      return lines.join("");
+    }
+
+    // Init
+    const selection = loadSelection();
+    if(!selection || !selection.plan){
+      // Keep user moving: pricing is the source of truth for plan selection.
+      showToast("Please choose a membership on the Pricing page first.");
+      setTimeout(() => { window.location.href = "pricing.html"; }, 900);
+    } else {
+      renderSummary(selection);
+    }
+
+    const form = $("#checkoutForm");
+    let currentStep = 1;
+    setStep(currentStep);
+
+    $("#nextToPayment").addEventListener("click", () => {
+      const ok = validateStep(form, ["fullName","email","address1","city","state","zip","country"]);
+      if(!ok) return;
+      currentStep = 2;
+      setStep(currentStep);
+    });
+    $("#backToDetails").addEventListener("click", () => { currentStep = 1; setStep(currentStep); });
+
+    $("#nextToConfirm").addEventListener("click", () => {
+      const ok = validateStep(form, ["cardNumber","cardExpiry","cardCvc","cardName"]);
+      if(!ok) return;
+      $("#confirmBox").innerHTML = buildConfirmText(selection, form);
+      currentStep = 3;
+      setStep(currentStep);
+    });
+    $("#backToPayment").addEventListener("click", () => { currentStep = 2; setStep(currentStep); });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      // Minimal final validation
+      const ok1 = validateStep(form, ["fullName","email","address1","city","state","zip","country"]);
+      const ok2 = validateStep(form, ["cardNumber","cardExpiry","cardCvc","cardName"]);
+      if(!ok1 || !ok2) return;
+
+      const order = {
+        id: "CG-" + Math.random().toString(16).slice(2, 10).toUpperCase(),
+        placedAt: new Date().toISOString(),
+        selection,
+        customer: {
+          fullName: form.elements.fullName.value,
+          email: form.elements.email.value,
+          address1: form.elements.address1.value,
+          address2: form.elements.address2.value,
+          city: form.elements.city.value,
+          state: form.elements.state.value,
+          zip: form.elements.zip.value,
+          country: form.elements.country.value
+        }
+      };
+
+      try{
+        localStorage.setItem("cg_last_order_v1", JSON.stringify(order));
+      } catch {}
+
+      showToast(`Order placed. Confirmation: ${order.id}`);
+      $("#placeOrderBtn").disabled = true;
+      $("#placeOrderBtn").style.opacity = "0.75";
+
+      setTimeout(() => {
+        alert(
+          `Thank you!\n\n` +
+          `Your prototype order has been placed.\n` +
+          `Confirmation: ${order.id}\n\n` +
+          `You can return to Pricing to build another kit.`
+        );
+        window.location.href = "pricing.html";
+      }, 650);
+    });
+  </script>
+</body>
+</html>

@@ -770,29 +770,108 @@
       render();
     });
 
-    // Continue (prototype)
+    // Restore builder state from URL (deep link) or localStorage.
+    const STORAGE_KEY = "cg_checkout_state_v1";
+    function applyPrefillFromUrl(){
+      const params = new URLSearchParams(window.location.search);
+      const billing = params.get("billing");          // monthly | annual
+      const plan = params.get("plan");                // essential | guardian
+      const devices = params.get("devices");          // ring,band,...
+      const bundle = params.get("bundle");            // 1
+      const patchQty = params.get("patchDeliveryQty");// 4|8|12
+
+      let touched = false;
+      if(billing === "monthly" || billing === "annual"){
+        state.billing = billing;
+        touched = true;
+      }
+      if(plan && PRICES.plans[plan]){
+        state.plan = plan;
+        touched = true;
+      }
+      if(bundle === "1"){
+        state.bundleActive = true;
+        state.devices = new Set(PRICES.bundle.includes);
+        touched = true;
+      } else if(devices){
+        const list = devices.split(",").map(s => s.trim()).filter(Boolean);
+        if(list.length){
+          state.bundleActive = false;
+          state.devices = new Set(list.filter(k => PRICES.devices[k]));
+          touched = true;
+        }
+      }
+      if(patchQty && PRICES.patchDelivery.options[patchQty]){
+        state.patchDeliveryEnabled = true;
+        state.patchDeliveryQty = String(patchQty);
+        $("#patchDeliveryEnabled").checked = true;
+        $("#patchDeliveryPlan").disabled = false;
+        $("#patchDeliveryPlan").value = String(patchQty);
+        touched = true;
+      }
+
+      if(touched){
+        // Re-apply billing UI and plan highlight.
+        setBilling(state.billing);
+        if(state.plan) choosePlan(state.plan);
+        render();
+      }
+    }
+
+    function tryRestoreFromStorage(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if(!raw) return;
+        const saved = JSON.parse(raw);
+        if(!saved) return;
+
+        if(saved.billing === "monthly" || saved.billing === "annual") state.billing = saved.billing;
+        if(saved.plan && PRICES.plans[saved.plan]) state.plan = saved.plan;
+        state.bundleActive = !!saved.bundleActive;
+
+        if(state.bundleActive){
+          state.devices = new Set(PRICES.bundle.includes);
+        } else if(Array.isArray(saved.devices)){
+          state.devices = new Set(saved.devices.filter(k => PRICES.devices[k]));
+        }
+
+        state.patchDeliveryEnabled = !!saved.patchDeliveryEnabled;
+        state.patchDeliveryQty = saved.patchDeliveryQty ? String(saved.patchDeliveryQty) : null;
+
+        // Sync patch delivery controls
+        const hasPatch = state.devices.has("patch");
+        $("#patchDeliveryEnabled").checked = hasPatch && state.patchDeliveryEnabled;
+        $("#patchDeliveryEnabled").disabled = !hasPatch;
+        $("#patchDeliveryPlan").disabled = !(hasPatch && $("#patchDeliveryEnabled").checked);
+        $("#patchDeliveryPlan").value = (hasPatch && state.patchDeliveryEnabled && state.patchDeliveryQty) ? state.patchDeliveryQty : "none";
+
+        setBilling(state.billing);
+        if(state.plan) choosePlan(state.plan);
+        render();
+      } catch {}
+    }
+
+    // Continue → real checkout page (prototype)
     $("#continueBtn").addEventListener("click", () => {
       if(!state.plan){
         showToast("Choose a membership to continue");
         return;
       }
 
-      const totals = computeTotals();
-      const devices = Array.from(state.devices).map(k => PRICES.devices[k].name);
-      const patch = (state.patchDeliveryEnabled && state.patchDeliveryQty)
-        ? PRICES.patchDelivery.options[state.patchDeliveryQty].label
-        : "None";
+      const payload = {
+        billing: state.billing,
+        plan: state.plan,
+        devices: Array.from(state.devices),
+        bundleActive: state.bundleActive,
+        patchDeliveryEnabled: state.patchDeliveryEnabled,
+        patchDeliveryQty: state.patchDeliveryQty
+      };
 
-      alert(
-        `Checkout summary (prototype)\n\n` +
-        `Billing: ${state.billing}\n` +
-        `Membership: ${PRICES.plans[state.plan].name}\n` +
-        `Devices: ${devices.length ? devices.join(", ") : "None"}\n` +
-        `Patch delivery: ${patch}\n\n` +
-        `Due today (hardware): ${money(totals.hardware)}\n` +
-        `Membership: ${money(totals.membership)}${totals.membershipLabel}\n` +
-        (totals.patchRecurring ? `Patch delivery: ${money(totals.patchRecurring)}/mo\n` : ``)
-      );
+      try{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch {}
+
+      window.location.href = "checkout.html";
     });
 
     // Init patch option labels from config (single source of truth)
@@ -810,6 +889,10 @@
     // Init billing + render
     setBilling(state.billing);
     render();
+
+    // Prefill: URL takes priority, then localStorage
+    applyPrefillFromUrl();
+    if(!window.location.search) tryRestoreFromStorage();
   </script>
 </body>
 </html>
