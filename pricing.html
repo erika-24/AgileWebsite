@@ -132,10 +132,6 @@
             <span>Devices</span>
             <strong id="summaryDevices">0</strong>
           </div>
-          <div class="summary-line">
-            <span>Patch delivery</span>
-            <strong id="summaryPatchDelivery">None</strong>
-          </div>
 
           <div class="summary-total">
             <div class="summary-line">
@@ -145,10 +141,6 @@
             <div class="summary-line">
               <span>Membership</span>
               <strong id="membershipDue">$0/mo</strong>
-            </div>
-            <div class="summary-line" id="patchDueRow" style="display:none;">
-              <span>Patch delivery</span>
-              <strong id="patchDue">$0/mo</strong>
             </div>
           </div>
 
@@ -161,54 +153,12 @@
     </div>
   </section>
 
-  <!-- BUNDLE -->
-  <section id="bundle" class="about">
-    <div class="container">
-      <div class="about-text">
-        <h3>Bundle & Save</h3>
-        <p>
-          Want full coverage across daily wear, sleep, home, and spot checks?
-          The Complete Care Bundle includes everything. Membership still required.
-        </p>
-
-        <div class="pricing-card" style="margin-top: 14px;">
-          <span class="pricing-badge">Complete kit</span>
-          <h4>Complete Care Bundle</h4>
-          <p>Ring + Band + Patch Starter + Cuff + Clip + Hub</p>
-
-          <div class="price-row">
-            <div class="price" id="bundlePrice">$899</div>
-            <div class="per">one-time hardware</div>
-            <div class="strike" id="bundleStrike">$1,099</div>
-          </div>
-
-          <ul class="bullets">
-            <li>Minimize gaps during sleep + charging windows</li>
-            <li>Hub improves reliability at home</li>
-            <li>Patch auto-delivery optional</li>
-          </ul>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="button" id="addBundleBtn">Add Bundle</button>
-            <button class="btn-secondary" type="button" id="bundleDetailsBtn">What’s included?</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-image">
-        <!-- Keep your existing pattern -->
-        <img src="https://images.unsplash.com/photo-1576243345690-4e4b79b63288?w=500&h=400&fit=crop" alt="CardioGuard devices" />
-      </div>
-    </div>
-  </section>
-
   <!-- DEVICES -->
   <section id="devices" class="features">
     <div class="container">
       <h3>Devices (Hardware)</h3>
 
       <div class="pricing-grid-3">
-        <!-- Ring -->
         <div class="pricing-card" data-device-card="ring">
           <span class="pricing-badge">All-day</span>
           <h4>CardioGuard Ring</h4>
@@ -227,135 +177,6 @@
 
           <div class="btn-row">
             <button class="btn-primary" type="button" data-action="toggle-device" data-device="ring">Add Ring</button>
-          </div>
-        </div>
-
-        <!-- Band -->
-        <div class="pricing-card" data-device-card="band">
-          <span class="pricing-badge">Wrist</span>
-          <h4>CardioGuard Band</h4>
-          <p>Wrist wearable with continuous ECG and vitals.</p>
-
-          <div class="price-row">
-            <div class="price" id="price-band">$199</div>
-            <div class="per">hardware</div>
-          </div>
-
-          <ul class="bullets">
-            <li>Comfortable for daily use</li>
-            <li>On-demand ECG check-ins</li>
-            <li>Great alternative to ring</li>
-          </ul>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="button" data-action="toggle-device" data-device="band">Add Band</button>
-          </div>
-        </div>
-
-        <!-- Patch -->
-        <div class="pricing-card" data-device-card="patch">
-          <span class="pricing-badge">Sleep</span>
-          <h4>CardioGuard Patch</h4>
-          <p>Single-lead ECG chest patch for extended wear.</p>
-
-          <div class="price-row">
-            <div class="price" id="price-patch">$149</div>
-            <div class="per">starter kit</div>
-          </div>
-
-          <ul class="bullets">
-            <li>Secure wear for days</li>
-            <li>Perfect for sleep or charging windows</li>
-            <li>Reduces monitoring gaps</li>
-          </ul>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="button" data-action="toggle-device" data-device="patch">Add Patch</button>
-          </div>
-
-          <div class="addon">
-            <div class="addon-top">
-              <label>
-                <input type="checkbox" id="patchDeliveryEnabled" />
-                Patch auto-delivery
-              </label>
-
-              <select id="patchDeliveryPlan" disabled>
-                <option value="none">Choose schedule</option>
-                <option value="4">4 patches / month — $24</option>
-                <option value="8">8 patches / month — $44</option>
-                <option value="12">12 patches / month — $60</option>
-              </select>
-            </div>
-            <p class="pricing-note" style="margin-bottom:0;">
-              Auto-delivery bills monthly. (Placeholder policy: pause anytime.)
-            </p>
-          </div>
-        </div>
-
-        <!-- Cuff -->
-        <div class="pricing-card" data-device-card="cuff">
-          <span class="pricing-badge">BP</span>
-          <h4>CardioGuard Cuff</h4>
-          <p>Blood pressure tracking for hypertension insights.</p>
-
-          <div class="price-row">
-            <div class="price" id="price-cuff">$129</div>
-            <div class="per">hardware</div>
-          </div>
-
-          <ul class="bullets">
-            <li>Guided measurements in the app</li>
-            <li>Trends + correlation with events</li>
-            <li>Best for at-home routines</li>
-          </ul>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="button" data-action="toggle-device" data-device="cuff">Add Cuff</button>
-          </div>
-        </div>
-
-        <!-- Clip -->
-        <div class="pricing-card" data-device-card="clip">
-          <span class="pricing-badge">Spot-check</span>
-          <h4>CardioGuard Clip</h4>
-          <p>Fast spot-checks for oxygenation and vitals.</p>
-
-          <div class="price-row">
-            <div class="price" id="price-clip">$79</div>
-            <div class="per">hardware</div>
-          </div>
-
-          <ul class="bullets">
-            <li>Quick readings in seconds</li>
-            <li>Useful during symptoms</li>
-            <li>Great companion device</li>
-          </ul>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="button" data-action="toggle-device" data-device="clip">Add Clip</button>
-          </div>
-        </div>
-
-        <!-- Hub -->
-        <div class="pricing-card" data-device-card="hub">
-          <span class="pricing-badge">Home</span>
-          <h4>CardioGuard Hub</h4>
-          <p>Home relay that boosts reliability and reduces gaps.</p>
-
-          <div class="price-row">
-            <div class="price" id="price-hub">$179</div>
-            <div class="per">hardware</div>
-          </div>
-
-          <ul class="bullets">
-            <li>Improves connectivity at home</li>
-            <li>Helps during charging windows</li>
-            <li>Optional but recommended</li>
-          </ul>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="button" data-action="toggle-device" data-device="hub">Add Hub</button>
           </div>
         </div>
       </div>
@@ -423,17 +244,12 @@
 
       <details>
         <summary>Do I need more than one device?</summary>
-        <p>Not necessarily. Many users start with a Ring or Band. Adding a Patch can reduce gaps during sleep or charging, and Hub improves at-home reliability.</p>
+        <p>No. CardioGuard Ring is our only device—wear it for continuous cardiac monitoring.</p>
       </details>
 
       <details>
         <summary>How does no-response escalation work?</summary>
         <p>Guardian attempts to reach you first. If you don’t respond within a defined window, alerts escalate through your caregiver list (placeholder logic for prototype).</p>
-      </details>
-
-      <details>
-        <summary>How does patch auto-delivery work?</summary>
-        <p>Choose a monthly schedule (4/8/12). It bills monthly and can be changed or paused anytime (placeholder policy).</p>
       </details>
 
       <div style="margin-top: 18px;">
@@ -458,36 +274,15 @@
         guardian:  { name: "Guardian",  monthly: 39, annual: 390 }
       },
       devices: {
-        ring:  { name: "CardioGuard Ring",  price: 249 },
-        band:  { name: "CardioGuard Band",  price: 199 },
-        patch: { name: "CardioGuard Patch (Starter)", price: 149 },
-        cuff:  { name: "CardioGuard Cuff",  price: 129 },
-        clip:  { name: "CardioGuard Clip",  price: 79  },
-        hub:   { name: "CardioGuard Hub",   price: 179 }
-      },
-      bundle: {
-        name: "Complete Care Bundle",
-        includes: ["ring","band","patch","cuff","clip","hub"],
-        price: 899,
-        strike: 1099
-      },
-      patchDelivery: {
-        options: {
-          4:  { label: "4 patches / month",  monthly: 24 },
-          8:  { label: "8 patches / month",  monthly: 44 },
-          12: { label: "12 patches / month", monthly: 60 }
-        }
+        ring: { name: "CardioGuard Ring", price: 249 }
       }
     };
 
     // --------- State ----------
     const state = {
       billing: PRICES.billing,
-      plan: null,                 // "essential" | "guardian"
-      devices: new Set(),         // device keys
-      bundleActive: false,
-      patchDeliveryEnabled: false,
-      patchDeliveryQty: null      // "4" | "8" | "12"
+      plan: null,
+      devices: new Set()
     };
 
     // --------- Helpers ----------
@@ -561,77 +356,34 @@
     }
 
     function toggleDevice(deviceKey){
-      // If bundle is active, switch to custom kit
-      if(state.bundleActive){
-        state.bundleActive = false;
-        showToast("Bundle removed (custom kit enabled)");
-      }
-
       if(state.devices.has(deviceKey)){
         state.devices.delete(deviceKey);
       } else {
         state.devices.add(deviceKey);
       }
-
-      // If patch removed, disable patch delivery
-      if(!state.devices.has("patch")){
-        state.patchDeliveryEnabled = false;
-        state.patchDeliveryQty = null;
-        $("#patchDeliveryEnabled").checked = false;
-        $("#patchDeliveryPlan").value = "none";
-        $("#patchDeliveryPlan").disabled = true;
-      }
-
       render();
-    }
-
-    function addBundle(){
-      state.bundleActive = true;
-      state.devices = new Set(PRICES.bundle.includes);
-      render();
-      showToast("Added Complete Care Bundle");
     }
 
     function resetAll(){
       state.plan = null;
       state.devices = new Set();
-      state.bundleActive = false;
-      state.patchDeliveryEnabled = false;
-      state.patchDeliveryQty = null;
 
-      // Reset UI
       $("#summaryPlan").textContent = "Not selected";
       $$("[data-plan-card]").forEach(card => card.style.outline = "none");
-
-      $("#patchDeliveryEnabled").checked = false;
-      $("#patchDeliveryPlan").value = "none";
-      $("#patchDeliveryPlan").disabled = true;
 
       render();
       showToast("Reset");
     }
 
     function computeTotals(){
-      // Hardware due today
       let hardware = 0;
-      if(state.bundleActive){
-        hardware = PRICES.bundle.price;
-      } else {
-        for(const k of state.devices) hardware += PRICES.devices[k].price;
-      }
+      for(const k of state.devices) hardware += PRICES.devices[k].price;
 
-      // Membership recurring
       let membership = 0;
       let membershipLabel = state.billing === "monthly" ? "/mo" : "/yr";
       if(state.plan) membership = PRICES.plans[state.plan][state.billing];
 
-      // Patch delivery recurring monthly only
-      let patchRecurring = 0;
-      if(state.patchDeliveryEnabled && state.patchDeliveryQty){
-        patchRecurring = PRICES.patchDelivery.options[state.patchDeliveryQty].monthly;
-      }
-
-      return { hardware, membership, membershipLabel, patchRecurring };
+      return { hardware, membership, membershipLabel };
     }
 
     function renderDeviceButtons(){
@@ -650,34 +402,10 @@
     function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
 
     function render(){
-      // Populate device price labels from config
-      $("#price-ring").textContent  = money(PRICES.devices.ring.price);
-      $("#price-band").textContent  = money(PRICES.devices.band.price);
-      $("#price-patch").textContent = money(PRICES.devices.patch.price);
-      $("#price-cuff").textContent  = money(PRICES.devices.cuff.price);
-      $("#price-clip").textContent  = money(PRICES.devices.clip.price);
-      $("#price-hub").textContent   = money(PRICES.devices.hub.price);
+      $("#price-ring").textContent = money(PRICES.devices.ring.price);
 
-      // Bundle pricing
-      $("#bundlePrice").textContent = money(PRICES.bundle.price);
-      $("#bundleStrike").textContent = money(PRICES.bundle.strike);
-
-      // Patch delivery enable/disable: only meaningful if patch is selected
-      const hasPatch = state.devices.has("patch");
-      $("#patchDeliveryEnabled").disabled = !hasPatch;
-      $("#patchDeliveryPlan").disabled = !(hasPatch && $("#patchDeliveryEnabled").checked);
-
-      // Summary devices count
       $("#summaryDevices").textContent = String(state.devices.size);
 
-      // Patch delivery summary
-      if(state.patchDeliveryEnabled && state.patchDeliveryQty){
-        $("#summaryPatchDelivery").textContent = PRICES.patchDelivery.options[state.patchDeliveryQty].label;
-      } else {
-        $("#summaryPatchDelivery").textContent = "None";
-      }
-
-      // Totals
       const totals = computeTotals();
       $("#dueToday").textContent = money(totals.hardware);
 
@@ -687,21 +415,10 @@
         $("#membershipDue").textContent = state.billing === "monthly" ? "$0/mo" : "$0/yr";
       }
 
-      if(totals.patchRecurring > 0){
-        $("#patchDueRow").style.display = "flex";
-        $("#patchDue").textContent = `${money(totals.patchRecurring)}/mo`;
-      } else {
-        $("#patchDueRow").style.display = "none";
-      }
-
-      // Button states
       $("#continueBtn").disabled = !state.plan;
       $("#continueBtn").style.opacity = state.plan ? "1" : "0.6";
 
       renderDeviceButtons();
-
-      // Bundle highlight
-      $("#addBundleBtn").style.opacity = state.bundleActive ? "0.85" : "1";
     }
 
     // --------- Events ----------
@@ -716,67 +433,15 @@
       btn.addEventListener("click", () => toggleDevice(btn.getAttribute("data-device")));
     });
 
-    $("#addBundleBtn").addEventListener("click", addBundle);
-
-    $("#bundleDetailsBtn").addEventListener("click", () => {
-      const list = PRICES.bundle.includes.map(k => PRICES.devices[k].name).join(", ");
-      alert(`Bundle includes: ${list}`);
-    });
-
     $("#resetBtn").addEventListener("click", resetAll);
-
-    // Patch delivery
-    $("#patchDeliveryEnabled").addEventListener("change", (e) => {
-      const on = e.target.checked;
-
-      if(!state.devices.has("patch")){
-        e.target.checked = false;
-        showToast("Add Patch to enable delivery");
-        return;
-      }
-
-      state.patchDeliveryEnabled = on;
-
-      const sel = $("#patchDeliveryPlan");
-      sel.disabled = !on;
-
-      if(!on){
-        state.patchDeliveryQty = null;
-        sel.value = "none";
-      } else {
-        if(sel.value === "none") sel.value = "4";
-        state.patchDeliveryQty = sel.value;
-      }
-
-      render();
-      showToast(on ? "Patch delivery enabled" : "Patch delivery disabled");
-    });
-
-    $("#patchDeliveryPlan").addEventListener("change", (e) => {
-      const v = e.target.value;
-      if(v === "none"){
-        state.patchDeliveryEnabled = false;
-        state.patchDeliveryQty = null;
-        $("#patchDeliveryEnabled").checked = false;
-        showToast("Patch delivery cleared");
-      } else {
-        state.patchDeliveryEnabled = true;
-        state.patchDeliveryQty = v;
-        $("#patchDeliveryEnabled").checked = true;
-        showToast("Patch schedule updated");
-      }
-      render();
-    });
 
     // Restore builder state from URL (deep link) or localStorage.
     const STORAGE_KEY = "cg_checkout_state_v1";
     function applyPrefillFromUrl(){
       const params = new URLSearchParams(window.location.search);
-      const billing = params.get("billing");          // monthly | annual
-      const plan = params.get("plan");                // essential | guardian
-      const devices = params.get("devices");          // ring,band,...
-      const bundle = params.get("bundle");            // 1
-      const patchQty = params.get("patchDeliveryQty");// 4|8|12
+      const billing = params.get("billing");
+      const plan = params.get("plan");
+      const devices = params.get("devices");
 
       let touched = false;
       if(billing === "monthly" || billing === "annual"){
@@ -787,29 +452,15 @@
         state.plan = plan;
         touched = true;
       }
-      if(bundle === "1"){
-        state.bundleActive = true;
-        state.devices = new Set(PRICES.bundle.includes);
-        touched = true;
-      } else if(devices){
+      if(devices){
         const list = devices.split(",").map(s => s.trim()).filter(Boolean);
         if(list.length){
-          state.bundleActive = false;
           state.devices = new Set(list.filter(k => PRICES.devices[k]));
           touched = true;
         }
       }
-      if(patchQty && PRICES.patchDelivery.options[patchQty]){
-        state.patchDeliveryEnabled = true;
-        state.patchDeliveryQty = String(patchQty);
-        $("#patchDeliveryEnabled").checked = true;
-        $("#patchDeliveryPlan").disabled = false;
-        $("#patchDeliveryPlan").value = String(patchQty);
-        touched = true;
-      }
 
       if(touched){
-        // Re-apply billing UI and plan highlight.
         setBilling(state.billing);
         if(state.plan) choosePlan(state.plan);
         render();
@@ -825,23 +476,9 @@
 
         if(saved.billing === "monthly" || saved.billing === "annual") state.billing = saved.billing;
         if(saved.plan && PRICES.plans[saved.plan]) state.plan = saved.plan;
-        state.bundleActive = !!saved.bundleActive;
-
-        if(state.bundleActive){
-          state.devices = new Set(PRICES.bundle.includes);
-        } else if(Array.isArray(saved.devices)){
+        if(Array.isArray(saved.devices)){
           state.devices = new Set(saved.devices.filter(k => PRICES.devices[k]));
         }
-
-        state.patchDeliveryEnabled = !!saved.patchDeliveryEnabled;
-        state.patchDeliveryQty = saved.patchDeliveryQty ? String(saved.patchDeliveryQty) : null;
-
-        // Sync patch delivery controls
-        const hasPatch = state.devices.has("patch");
-        $("#patchDeliveryEnabled").checked = hasPatch && state.patchDeliveryEnabled;
-        $("#patchDeliveryEnabled").disabled = !hasPatch;
-        $("#patchDeliveryPlan").disabled = !(hasPatch && $("#patchDeliveryEnabled").checked);
-        $("#patchDeliveryPlan").value = (hasPatch && state.patchDeliveryEnabled && state.patchDeliveryQty) ? state.patchDeliveryQty : "none";
 
         setBilling(state.billing);
         if(state.plan) choosePlan(state.plan);
@@ -859,10 +496,7 @@
       const payload = {
         billing: state.billing,
         plan: state.plan,
-        devices: Array.from(state.devices),
-        bundleActive: state.bundleActive,
-        patchDeliveryEnabled: state.patchDeliveryEnabled,
-        patchDeliveryQty: state.patchDeliveryQty
+        devices: Array.from(state.devices)
       };
 
       try{
@@ -871,18 +505,6 @@
 
       window.location.href = "checkout.html";
     });
-
-    // Init patch option labels from config (single source of truth)
-    (function hydratePatchOptions(){
-      const sel = $("#patchDeliveryPlan");
-      const opts = PRICES.patchDelivery.options;
-      Array.from(sel.options).forEach(o => {
-        const qty = o.value;
-        if(opts[qty]){
-          o.textContent = `${opts[qty].label} — ${money(opts[qty].monthly)}`;
-        }
-      });
-    })();
 
     // Init billing + render
     setBilling(state.billing);
