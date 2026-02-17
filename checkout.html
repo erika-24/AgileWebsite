@@ -170,7 +170,7 @@
             </div>
 
             <div class="btn-row">
-              <a class="btn-secondary" href="productsPage.html">Add more devices</a>
+              <a class="btn-secondary" href="productsPage.html">Back to Products</a>
             </div>
           </div>
         </aside>
@@ -194,24 +194,11 @@
         guardian:  { name: "Guardian",  monthly: 39, annual: 390 }
       },
       devices: {
-        ring:  { name: "CardioGuard Ring",  price: 249 },
-        band:  { name: "CardioGuard Band",  price: 199 },
-        patch: { name: "CardioGuard Patch (Starter)", price: 149 },
-        cuff:  { name: "CardioGuard Cuff",  price: 129 },
-        clip:  { name: "CardioGuard Clip",  price: 79  },
-        hub:   { name: "CardioGuard Hub",   price: 179 }
+        ring: { name: "CardioGuard Ring", price: 249 }
       },
-      bundle: {
-        name: "Complete Care Bundle",
-        includes: ["ring","band","patch","cuff","clip","hub"],
-        price: 899
-      },
+      bundle: null,
       patchDelivery: {
-        options: {
-          4:  { label: "4 patches / month",  monthly: 24 },
-          8:  { label: "8 patches / month",  monthly: 44 },
-          12: { label: "12 patches / month", monthly: 60 }
-        }
+        options: {}
       }
     };
 
@@ -243,7 +230,7 @@
       const deviceKeys = Array.isArray(sel?.devices) ? sel.devices : [];
 
       let hardware = 0;
-      if(bundleActive){
+      if(bundleActive && PRICES.bundle){
         hardware = PRICES.bundle.price;
       } else {
         for(const k of deviceKeys){
@@ -265,7 +252,7 @@
         billing,
         planKey,
         planName: planKey ? PRICES.plans[planKey]?.name : null,
-        deviceKeys: bundleActive ? PRICES.bundle.includes.slice() : deviceKeys,
+        deviceKeys: (bundleActive && PRICES.bundle) ? PRICES.bundle.includes.slice() : deviceKeys,
         hardware,
         membership,
         membershipLabel: billing === "monthly" ? "/mo" : "/yr",
